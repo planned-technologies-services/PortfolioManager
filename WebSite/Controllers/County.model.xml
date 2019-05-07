@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="county" alias="county" created="2017-08-02T10:06:43" modified="2017-08-02T10:13:15" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="countyid" fieldName="Countyid" label="Countyid" />
+    <column name="state" fieldName="State" label="State" />
+    <column name="county" fieldName="County" label="County" />
+    <column fieldName="countyState" type="varchar(55)" dataType="String" label="County State">
+      <formula>county.county+' ('+county.state+')'</formula>
+    </column>
+  </columns>
+</dataModel>

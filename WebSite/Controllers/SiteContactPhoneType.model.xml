@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="SiteContactPhoneType" alias="SiteContactPhoneType" created="2017-07-18T10:14:52" modified="2017-07-28T11:18:15" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="siteContactPhoneTypeId" fieldName="SiteContactPhoneTypeID" label="site Contact Phone Type Id" />
+    <column name="phoneTypeDescription" fieldName="PhoneTypeDescription" label="phone Type Description" />
+    <column name="createdBy" fieldName="CreatedBy" label="created By" />
+    <column name="prioritySorting" fieldName="PrioritySorting" label="Priority Sorting" />
+  </columns>
+</dataModel>

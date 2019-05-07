@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="SiteContactPhone" alias="SiteContactPhone" created="2017-07-18T10:13:18" modified="2017-07-18T10:14:42" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="siteContact" parentTableSchema="dbo" parentTableName="SiteContact" x="359" y="20">
+      <foreignKeyColumn columnName="siteContactId" parentColumnName="siteContactId" />
+    </foreignKey>
+    <foreignKey id="siteContactsite" parentTableSchema="dbo" parentTableName="Site" baseForeignKey="siteContact" x="697" y="20">
+      <foreignKeyColumn columnName="siteId" parentColumnName="siteid" />
+    </foreignKey>
+    <foreignKey id="siteContactcontactType" parentTableSchema="dbo" parentTableName="SiteContactType" baseForeignKey="siteContact" x="697" y="182">
+      <foreignKeyColumn columnName="contactTypeId" parentColumnName="contactTypeId" />
+    </foreignKey>
+    <foreignKey id="siteContactPhoneType" parentTableSchema="dbo" parentTableName="SiteContactPhoneType" x="359" y="227">
+      <foreignKeyColumn columnName="siteContactPhoneTypeId" parentColumnName="siteContactPhoneTypeId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="siteContactPhoneId" fieldName="SiteContactPhoneID" label="site Contact Phone Id" />
+    <column name="siteContactId" fieldName="SiteContactID" label="site Contact Id" aliasColumnName="firstName" aliasForeignKey="siteContact" />
+    <column name="firstName" fieldName="SiteContactPhonefirstName" label="site Contactfirst Name" foreignKey="siteContact" />
+    <column name="lastName" fieldName="SitecontactPhoneLastname" label="Sitecontact Phone Lastname" foreignKey="siteContact" />
+    <column name="jobno" fieldName="SiteContactPhonejobno" label="site Contactsitejobno" foreignKey="siteContactsite" />
+    <column name="site_name" fieldName="SitecontactPhoneSiteName" label="Sitecontact Phone Site Name" foreignKey="siteContactsite" />
+    <column name="contactTypeDetail" fieldName="SiteContactcontactTypecontactTypeDetail" label="site Contactcontact Typecontact Type Detail" foreignKey="siteContactcontactType" />
+    <column name="siteContactPhoneTypeId" fieldName="SiteContactPhoneTypeID" label="site Contact Phone Type Id" aliasColumnName="phoneTypeDescription" aliasForeignKey="siteContactPhoneType" />
+    <column name="phoneTypeDescription" fieldName="SiteContactPhoneTypephoneTypeDescription" label="site Contact Phone Typephone Type Description" foreignKey="siteContactPhoneType" />
+    <column name="phoneNumber" fieldName="PhoneNumber" label="phone Number" />
+    <column name="createdDate" fieldName="CreatedDate" label="created Date" format="g" />
+    <column name="createdBy" fieldName="CreatedBy" label="created By" />
+  </columns>
+</dataModel>

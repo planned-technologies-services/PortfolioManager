@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="FormHrWorkerscomp" conflictDetection="overwriteChanges" label="Form Hr Workerscomp" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Form_HR_WorkersComp"."form_hr_workerscompid" "FormHrWorkerscompid"
+	,"Form_HR_WorkersComp"."form_queueid" "FormQueueid"
+	,"Form_HR_WorkersComp"."status" "Status"
+	,"Form_HR_WorkersComp"."claim_id" "ClaimID"
+	,"Form_HR_WorkersComp"."company_code" "CompanyCode"
+	,"Form_HR_WorkersComp"."report_type" "ReportType"
+	,"Form_HR_WorkersComp"."siteid" "Siteid"
+	,"site"."jobno" "Sitejobno"
+	,"site"."site_name" "WorkersCompSiteSiteName"
+	,"Form_HR_WorkersComp"."jobno" "Jobno"
+	,"Form_HR_WorkersComp"."site_name" "SiteName"
+	,"Form_HR_WorkersComp"."site_state" "SiteState"
+	,"Form_HR_WorkersComp"."other_site_name" "OtherSiteName"
+	,"Form_HR_WorkersComp"."incident_date" "IncidentDate"
+	,"Form_HR_WorkersComp"."report_submitted_by" "ReportSubmittedBy"
+	,"Form_HR_WorkersComp"."report_submitted_date" "ReportSubmittedDate"
+	,"Form_HR_WorkersComp"."work_schedule_desc" "WorkScheduleDesc"
+	,"Form_HR_WorkersComp"."employeeid" "Employeeid"
+	,"employee"."employment_status" "EmployeeEmploymentStatus"
+	,"Form_HR_WorkersComp"."fileno" "Fileno"
+	,"Form_HR_WorkersComp"."employee_name" "EmployeeName"
+	,"Form_HR_WorkersComp"."first_name" "FirstName"
+	,"Form_HR_WorkersComp"."last_name" "LastName"
+	,"Form_HR_WorkersComp"."address1" "Address1"
+	,"Form_HR_WorkersComp"."address2" "Address2"
+	,"Form_HR_WorkersComp"."city" "City"
+	,"Form_HR_WorkersComp"."state" "State"
+	,"Form_HR_WorkersComp"."zipcode" "Zipcode"
+	,"Form_HR_WorkersComp"."phone_home" "PhoneHome"
+	,"Form_HR_WorkersComp"."phone_mobile" "PhoneMobile"
+	,"Form_HR_WorkersComp"."emailaddress" "Emailaddress"
+	,"Form_HR_WorkersComp"."federal_id" "FederalID"
+	,"Form_HR_WorkersComp"."birthdate" "Birthdate"
+	,"Form_HR_WorkersComp"."employment_status" "EmploymentStatus"
+	,"Form_HR_WorkersComp"."position" "Position"
+	,"Form_HR_WorkersComp"."injury_date" "InjuryDate"
+	,"Form_HR_WorkersComp"."injury_time" "InjuryTime"
+	,"Form_HR_WorkersComp"."accident_cause_desc" "AccidentCauseDesc"
+	,"Form_HR_WorkersComp"."injury_nature_desc" "InjuryNatureDesc"
+	,"Form_HR_WorkersComp"."body_part_desc" "BodyPartDesc"
+	,"Form_HR_WorkersComp"."body_side_desc" "BodySideDesc"
+	,"Form_HR_WorkersComp"."work_starttime" "WorkStarttime"
+	,"Form_HR_WorkersComp"."employer_notified_date" "EmployerNotifiedDate"
+	,"Form_HR_WorkersComp"."lastworked_date" "LastworkedDate"
+	,"Form_HR_WorkersComp"."hours_worked_per_day" "HoursWorkedPerDay"
+	,"Form_HR_WorkersComp"."days_worked_per_week" "DaysWorkedPerWeek"
+	,"Form_HR_WorkersComp"."expectedreturn_date" "ExpectedreturnDate"
+	,"Form_HR_WorkersComp"."return_date" "ReturnDate"
+	,"Form_HR_WorkersComp"."fatal_date" "FatalDate"
+	,"Form_HR_WorkersComp"."isemployeelosingworktime" "Isemployeelosingworktime"
+	,"Form_HR_WorkersComp"."disability_start_date" "DisabilityStartDate"
+	,"Form_HR_WorkersComp"."ismodifiedduty" "Ismodifiedduty"
+	,"Form_HR_WorkersComp"."modifiedduty_start_date" "ModifieddutyStartDate"
+	,"Form_HR_WorkersComp"."hadSafeguards" "HadSafeguards"
+	,"Form_HR_WorkersComp"."wereSafeguardsUsed" "WereSafeguardsUsed"
+	,"Form_HR_WorkersComp"."isQuestionableClaim" "IsQuestionableClaim"
+	,"Form_HR_WorkersComp"."wasinjured_during_employment" "WasinjuredDuringEmployment"
+	,"Form_HR_WorkersComp"."witness_available" "WitnessAvailable"
+	,"Form_HR_WorkersComp"."witness_name" "WitnessName"
+	,"Form_HR_WorkersComp"."witness_phone" "WitnessPhone"
+	,"Form_HR_WorkersComp"."medical_treatment_facility_name" "MedicalTreatmentFacilityName"
+	,"Form_HR_WorkersComp"."medical_treatment_doctor_name" "MedicalTreatmentDoctorName"
+	,"Form_HR_WorkersComp"."medical_treatment_address" "MedicalTreatmentAddress"
+	,"Form_HR_WorkersComp"."medical_treatment_seeked" "MedicalTreatmentSeeked"
+	,"Form_HR_WorkersComp"."medical_treatment_refused" "MedicalTreatmentRefused"
+	,"Form_HR_WorkersComp"."medical_treatment_doctors_notes_provided" "MedicalTreatmentDoctorsNotesProvided"
+	,"Form_HR_WorkersComp"."temp_prescription_card_issued" "TempPrescriptionCardIssued"
+	,"Form_HR_WorkersComp"."comment" "Comment"
+	,"Form_HR_WorkersComp"."created_date" "CreatedDate"
+from "dbo"."Form_HR_WorkersComp" "Form_HR_WorkersComp"
+	left join "dbo"."Site" "site" on "Form_HR_WorkersComp"."siteid" = "site"."siteid"
+	left join "dbo"."Employee" "employee" on "Form_HR_WorkersComp"."employeeid" = "employee"."employeeid"
+]]></text>
+    </command>
+    <command id="form_hr_workerscompidIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="FormHrWorkerscompid" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="FormHrWorkerscompid" type="Int32" allowNulls="false" isPrimaryKey="true" label="Form Hr Workerscompid" readOnly="true" />
+    <field name="FormQueueid" type="Int32" label="Form Queueid" showInSummary="true" />
+    <field name="Status" type="String" label="Status" length="5" showInSummary="true">
+      <items style="DropDownList">
+        <item value="N" text="New" />
+        <item value="C" text="Closed" />
+        <item value="O" text="Open" />
+      </items>
+    </field>
+    <field name="ClaimID" type="String" label="Claim Id" length="18" showInSummary="true" />
+    <field name="CompanyCode" type="String" label="Company Code" length="3" showInSummary="true" />
+    <field name="ReportType" type="String" label="Report Type" length="15" showInSummary="true" />
+    <field name="Siteid" type="Int32" label="Site ">
+      <items style="Lookup" dataController="Site" dataValueField="Siteid" dataTextField="SiteName" copy="WorkersCompSiteSiteName=SiteName" />
+    </field>
+    <field name="Sitejobno" type="String" readOnly="true" label="Sitejobno" length="7" />
+    <field name="WorkersCompSiteSiteName" type="String" readOnly="true" label="Site Name" length="30" />
+    <field name="Jobno" type="String" label="Jobno" length="7" />
+    <field name="SiteName" type="String" label="Site Name" length="50" />
+    <field name="SiteState" type="String" label="Site State" length="2" />
+    <field name="OtherSiteName" type="String" allowQBE="false" allowSorting="false" label="Other Site Name" />
+    <field name="IncidentDate" type="DateTime" dataFormatString="d" label="Incident Date" />
+    <field name="ReportSubmittedBy" type="String" label="Report Submitted By" length="15" />
+    <field name="ReportSubmittedDate" type="DateTime" dataFormatString="d" label="Report Submitted Date" />
+    <field name="WorkScheduleDesc" type="String" label="Work Schedule Desc" length="50" />
+    <field name="Employeeid" type="Int32" label="Employeeid">
+      <items style="Lookup" dataController="Employee" dataValueField="Employeeid" dataTextField="EmploymentStatus" />
+    </field>
+    <field name="EmployeeEmploymentStatus" type="String" readOnly="true" label="Employee Employment Status" length="5">
+      <items style="DropDownList">
+        <item value="A" text="Active" />
+        <item value="T" text="Terminated" />
+      </items>
+    </field>
+    <field name="Fileno" type="String" label="Fileno" length="7" />
+    <field name="EmployeeName" type="String" label="Employee Name" length="60" />
+    <field name="FirstName" type="String" label="First Name" length="35" />
+    <field name="LastName" type="String" label="Last Name" length="35" />
+    <field name="Address1" type="String" label="Address1" length="30" />
+    <field name="Address2" type="String" label="Address2" length="30" />
+    <field name="City" type="String" label="City" length="30" />
+    <field name="State" type="String" label="State" length="2" />
+    <field name="Zipcode" type="String" label="Zipcode" length="10" />
+    <field name="PhoneHome" type="String" label="Phone Home" length="20" />
+    <field name="PhoneMobile" type="String" label="Phone Mobile" length="20" />
+    <field name="Emailaddress" type="String" label="Emailaddress" length="60" />
+    <field name="FederalID" type="String" label="Federal Id" length="10" />
+    <field name="Birthdate" type="DateTime" dataFormatString="g" label="Birthdate" />
+    <field name="EmploymentStatus" type="String" label="Employment Status" length="1" />
+    <field name="Position" type="String" label="Position" length="50" />
+    <field name="InjuryDate" type="DateTime" dataFormatString="g" label="Injury Date" />
+    <field name="InjuryTime" type="String" label="Injury Time" length="20" />
+    <field name="AccidentCauseDesc" type="String" label="Accident Cause Desc" length="100" />
+    <field name="InjuryNatureDesc" type="String" label="Injury Nature Desc" length="100" />
+    <field name="BodyPartDesc" type="String" label="Body Part Desc" length="100" />
+    <field name="BodySideDesc" type="String" label="Body Side Desc" length="100" />
+    <field name="WorkStarttime" type="String" label="Work Starttime" length="20" />
+    <field name="EmployerNotifiedDate" type="DateTime" dataFormatString="g" label="Employer Notified Date" />
+    <field name="LastworkedDate" type="DateTime" dataFormatString="g" label="Lastworked Date" />
+    <field name="HoursWorkedPerDay" type="Int32" label="Hours Worked Per Day" />
+    <field name="DaysWorkedPerWeek" type="Int32" label="Days Worked Per Week" />
+    <field name="ExpectedreturnDate" type="DateTime" dataFormatString="g" label="Expectedreturn Date" />
+    <field name="ReturnDate" type="DateTime" dataFormatString="g" label="Return Date" />
+    <field name="FatalDate" type="DateTime" dataFormatString="g" label="Fatal Date" />
+    <field name="Isemployeelosingworktime" type="String" label="Isemployeelosingworktime" length="1" />
+    <field name="DisabilityStartDate" type="DateTime" dataFormatString="g" label="Disability Start Date" />
+    <field name="Ismodifiedduty" type="String" label="Ismodifiedduty" length="1" />
+    <field name="ModifieddutyStartDate" type="DateTime" dataFormatString="g" label="Modifiedduty Start Date" />
+    <field name="HadSafeguards" type="String" label="had Safeguards" length="1" />
+    <field name="WereSafeguardsUsed" type="String" label="were Safeguards Used" length="1" />
+    <field name="IsQuestionableClaim" type="String" label="is Questionable Claim" length="1" />
+    <field name="WasinjuredDuringEmployment" type="String" label="Wasinjured During Employment" length="1" />
+    <field name="WitnessAvailable" type="String" label="Witness Available" length="1" />
+    <field name="WitnessName" type="String" allowQBE="false" allowSorting="false" label="Witness Name" />
+    <field name="WitnessPhone" type="String" label="Witness Phone" length="50" />
+    <field name="MedicalTreatmentFacilityName" type="String" label="Medical Treatment Facility Name" length="100" />
+    <field name="MedicalTreatmentDoctorName" type="String" label="Medical Treatment Doctor Name" length="50" />
+    <field name="MedicalTreatmentAddress" type="String" label="Medical Treatment Address" length="100" />
+    <field name="MedicalTreatmentSeeked" type="String" label="Medical Treatment Seeked" length="1" />
+    <field name="MedicalTreatmentRefused" type="String" label="Medical Treatment Refused" length="1" />
+    <field name="MedicalTreatmentDoctorsNotesProvided" type="String" label="Medical Treatment Doctors Notes Provided" length="1" />
+    <field name="TempPrescriptionCardIssued" type="String" label="Temp Prescription Card Issued" length="1" />
+    <field name="Comment" type="String" allowQBE="false" allowSorting="false" label="Comment" />
+    <field name="CreatedDate" type="DateTime" dataFormatString="g" default="(getdate())" label="Created Date" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Form Hr Workerscomp">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="ClaimID" columns="15" />
+        <dataField fieldName="Status" columns="5" />
+        <dataField fieldName="ReportType" columns="10" />
+        <dataField fieldName="Siteid" aliasFieldName="Sitejobno" />
+        <dataField fieldName="IncidentDate" columns="10" />
+        <dataField fieldName="ReportSubmittedDate" columns="20" />
+        <dataField fieldName="ReportSubmittedBy" columns="15" />
+        <dataField fieldName="Employeeid" aliasFieldName="EmployeeEmploymentStatus" hidden="true" />
+        <dataField fieldName="Fileno" columns="7" />
+        <dataField fieldName="FirstName" columns="15" />
+        <dataField fieldName="LastName" columns="15" />
+        <dataField fieldName="EmploymentStatus" columns="10" />
+        <dataField fieldName="Position" columns="20" />
+        <dataField fieldName="InjuryDate" columns="10" />
+        <dataField fieldName="AccidentCauseDesc" />
+        <dataField fieldName="InjuryNatureDesc" columns="20" />
+        <dataField fieldName="BodyPartDesc" columns="10" />
+        <dataField fieldName="BodySideDesc" columns="10" />
+        <dataField fieldName="Comment" rows="5" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Form Hr Workerscomp">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Form Hr Workerscomp" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="FormQueueid" columns="15" />
+            <dataField fieldName="Status" columns="1" />
+            <dataField fieldName="ClaimID" columns="18" />
+            <dataField fieldName="CompanyCode" columns="3" />
+            <dataField fieldName="ReportType" columns="15" />
+            <dataField fieldName="Siteid" aliasFieldName="Sitejobno" />
+            <dataField fieldName="WorkersCompSiteSiteName" columns="30" />
+            <dataField fieldName="Jobno" columns="7" />
+            <dataField fieldName="SiteName" columns="50" />
+            <dataField fieldName="SiteState" columns="2" />
+            <dataField fieldName="OtherSiteName" rows="5" />
+            <dataField fieldName="IncidentDate" columns="20" />
+            <dataField fieldName="ReportSubmittedBy" columns="15" />
+            <dataField fieldName="ReportSubmittedDate" columns="20" />
+            <dataField fieldName="WorkScheduleDesc" columns="50" />
+            <dataField fieldName="Employeeid" aliasFieldName="EmployeeEmploymentStatus" />
+            <dataField fieldName="Fileno" columns="7" />
+            <dataField fieldName="EmployeeName" />
+            <dataField fieldName="FirstName" columns="35" />
+            <dataField fieldName="LastName" columns="35" />
+            <dataField fieldName="Address1" columns="30" />
+            <dataField fieldName="Address2" columns="30" />
+            <dataField fieldName="City" columns="30" />
+            <dataField fieldName="State" columns="2" />
+            <dataField fieldName="Zipcode" columns="10" />
+            <dataField fieldName="PhoneHome" columns="20" />
+            <dataField fieldName="PhoneMobile" columns="20" />
+            <dataField fieldName="Emailaddress" />
+            <dataField fieldName="FederalID" columns="10" />
+            <dataField fieldName="Birthdate" columns="20" />
+            <dataField fieldName="EmploymentStatus" columns="1" />
+            <dataField fieldName="Position" columns="50" />
+            <dataField fieldName="InjuryDate" columns="20" />
+            <dataField fieldName="InjuryTime" columns="20" />
+            <dataField fieldName="AccidentCauseDesc" />
+            <dataField fieldName="InjuryNatureDesc" />
+            <dataField fieldName="BodyPartDesc" />
+            <dataField fieldName="BodySideDesc" />
+            <dataField fieldName="WorkStarttime" columns="20" />
+            <dataField fieldName="EmployerNotifiedDate" columns="20" />
+            <dataField fieldName="LastworkedDate" columns="20" />
+            <dataField fieldName="HoursWorkedPerDay" columns="15" />
+            <dataField fieldName="DaysWorkedPerWeek" columns="15" />
+            <dataField fieldName="ExpectedreturnDate" columns="20" />
+            <dataField fieldName="ReturnDate" columns="20" />
+            <dataField fieldName="FatalDate" columns="20" />
+            <dataField fieldName="Isemployeelosingworktime" columns="1" />
+            <dataField fieldName="DisabilityStartDate" columns="20" />
+            <dataField fieldName="Ismodifiedduty" columns="1" />
+            <dataField fieldName="ModifieddutyStartDate" columns="20" />
+            <dataField fieldName="HadSafeguards" columns="1" />
+            <dataField fieldName="WereSafeguardsUsed" columns="1" />
+            <dataField fieldName="IsQuestionableClaim" columns="1" />
+            <dataField fieldName="WasinjuredDuringEmployment" columns="1" />
+            <dataField fieldName="WitnessAvailable" columns="1" />
+            <dataField fieldName="WitnessName" rows="5" />
+            <dataField fieldName="WitnessPhone" columns="50" />
+            <dataField fieldName="MedicalTreatmentFacilityName" />
+            <dataField fieldName="MedicalTreatmentDoctorName" columns="50" />
+            <dataField fieldName="MedicalTreatmentAddress" />
+            <dataField fieldName="MedicalTreatmentSeeked" columns="1" />
+            <dataField fieldName="MedicalTreatmentRefused" columns="1" />
+            <dataField fieldName="MedicalTreatmentDoctorsNotesProvided" columns="1" />
+            <dataField fieldName="TempPrescriptionCardIssued" columns="1" />
+            <dataField fieldName="Comment" rows="5" />
+            <dataField fieldName="CreatedDate" columns="20" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a6" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a5" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+</dataController>

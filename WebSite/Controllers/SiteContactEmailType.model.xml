@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="SiteContactEmailType" alias="SiteContactEmailType" created="2017-07-18T10:12:59" modified="2017-07-18T10:13:04" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="siteContactEmailTypeId" fieldName="SiteContactEmailTypeID" label="site Contact Email Type Id" />
+    <column name="EmailTypeDescription" fieldName="EmailTypeDescription" label="Email Type Description" />
+    <column name="createdBy" fieldName="CreatedBy" label="created By" />
+  </columns>
+</dataModel>

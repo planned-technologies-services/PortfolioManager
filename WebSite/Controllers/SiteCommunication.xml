@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="SiteCommunication" conflictDetection="overwriteChanges" label="Site Communication" handler="Planned.Rules.SiteCommunicationBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"SiteCommunication"."siteCommunicationId" "SiteCommunicationID"
+	,"SiteCommunication"."siteCommunicationTypeId" "SiteCommunicationTypeID"
+	,"siteCommunicationType"."CommunicationTypeDescription" "SiteCommunicationTypeDescription"
+	,"SiteCommunication"."siteCommunicationCategoryId" "SiteCommunicationCategoryID"
+	,"siteCommunicationCategory"."categoryDescription" "SiteCommunicationCategorycategoryDescription"
+	,"siteCommunicationCategory"."type" "SitecommunicationcategoryType"
+	,"SiteCommunication"."siteContactId" "SiteContactID"
+	,"siteContact"."firstName" "SiteCommunicationContactfirstName"
+	,"siteContact"."lastName" "SiteCommunicationcontactLastname"
+	,"siteContactcontactType"."contactTypeDetail" "SiteContactcontactTypecontactTypeDetail"
+	,"SiteCommunication"."siteId" "SiteID"
+	,"site"."jobno" "Sitejobno"
+	,"site"."site_name" "SiteCommunicationSiteName"
+	,"SiteCommunication"."messageDate" "MessageDate"
+	,"SiteCommunication"."createdDate" "CreatedDate"
+	,"SiteCommunication"."createdBy" "CreatedBy"
+	,"SiteCommunication"."followUpTo" "FollowUpTo"
+	,"SiteCommunication"."priority" "Priority"
+	,"SiteCommunication"."status" "Status"
+	,"SiteCommunication"."subject" "Subject"
+	,"SiteCommunication"."details" "Details"
+	,"SiteCommunication"."dueDate" "DueDate"
+	,"SiteCommunication"."username" "Username"
+	,"SiteCommunication"."siteContactEmailId" "SiteCommunicationSiteContactEmailId"
+	,"siteContactEmail"."email" "SitecontactemailEmail"
+from "dbo"."SiteCommunication" "SiteCommunication"
+	left join "dbo"."SiteCommunicationType" "siteCommunicationType" on "SiteCommunication"."siteCommunicationTypeId" = "siteCommunicationType"."siteCommunicationTypeId"
+	left join "dbo"."SiteCommunicationCategory" "siteCommunicationCategory" on "SiteCommunication"."siteCommunicationCategoryId" = "siteCommunicationCategory"."siteCommunicationCategoryId"
+	left join "dbo"."SiteContact" "siteContact" on "SiteCommunication"."siteContactId" = "siteContact"."siteContactId"
+	left join "dbo"."SiteContactType" "siteContactcontactType" on "siteContact"."contactTypeId" = "siteContactcontactType"."contactTypeId"
+	left join "dbo"."Site" "site" on "SiteCommunication"."siteId" = "site"."siteid"
+	left join "dbo"."SiteContactEmail" "siteContactEmail" on "SiteCommunication"."siteContactEmailId" = "siteContactEmail"."siteContactEmailId"
+]]></text>
+    </command>
+    <command id="siteCommunicationIdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="SiteCommunicationID" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="SiteCommunicationID" type="Int32" allowNulls="false" isPrimaryKey="true" label="site Communication Id" readOnly="true" />
+    <field name="SiteCommunicationTypeID" type="Int32" allowNulls="false" label="About" showInSummary="true">
+      <items style="RadioButtonList" dataController="SiteCommunicationType" newDataView="createForm1" dataValueField="SiteCommunicationTypeID" dataTextField="CommunicationTypeDescription" />
+    </field>
+    <field name="SiteCommunicationTypeDescription" type="String" readOnly="true" label="About" length="30" />
+    <field name="SiteCommunicationCategoryID" type="Int32" allowNulls="false" label="Communication Category" showInSummary="true">
+      <items style="RadioButtonList" dataController="SiteCommunicationCategory" newDataView="createForm1" dataValueField="SiteCommunicationCategoryID" dataTextField="CategoryDescription" copy="SitecommunicationcategoryType=Type" />
+    </field>
+    <field name="SiteCommunicationCategorycategoryDescription" type="String" readOnly="true" label="Action" length="30" />
+    <field name="SitecommunicationcategoryType" type="String" readOnly="true" label="Sitecommunicationcategory Type" length="1" />
+    <field name="SiteContactID" type="Int32" label="Contact Name" showInSummary="true" contextFields="emailRequired = 1">
+      <items style="AutoComplete" dataController="SiteContact" newDataView="createForm1" dataValueField="SiteContactID" dataTextField="SiteContactDetail" copy="SiteCommunicationcontactLastname=LastName, SiteContactcontactTypecontactTypeDetail=ContactTypecontactTypeDetail" dataView="gridbySite" />
+    </field>
+    <field name="SiteCommunicationContactfirstName" type="String" readOnly="true" label="Contact Name" length="50" />
+    <field name="SiteCommunicationcontactLastname" type="String" readOnly="true" label="Contact Last name" length="50" />
+    <field name="SiteContactcontactTypecontactTypeDetail" type="String" readOnly="true" label="Contact Type" length="50" />
+    <field name="SiteID" type="Int32" allowNulls="false" label="site Id" showInSummary="true">
+      <items style="Lookup" dataController="Site" dataValueField="Siteid" dataTextField="SiteName" copy="SiteCommunicationSiteName=SiteName" />
+    </field>
+    <field name="Sitejobno" type="String" readOnly="true" label="Sitejobno" length="7" />
+    <field name="SiteCommunicationSiteName" type="String" readOnly="true" label="Site Name" length="30" />
+    <field name="MessageDate" type="DateTime" dataFormatString="g" label="Message Date" showInSummary="true" />
+    <field name="CreatedDate" type="DateTime" dataFormatString="g" default="(getdate())" label="created Date" />
+    <field name="CreatedBy" type="String" label="created By" length="50">
+      <items style="UserNameLookup" />
+    </field>
+    <field name="FollowUpTo" type="Int32" label="Follow Up To" />
+    <field name="Priority" type="Int32" label="Priority">
+      <items style="DropDownList">
+        <item value="1" text="Low" />
+        <item value="3" text="Normal" />
+        <item value="5" text="High" />
+      </items>
+    </field>
+    <field name="Status" type="String" allowNulls="false" label="Status" length="3">
+      <items style="RadioButtonList">
+        <item value="P" text="Pending" />
+        <item value="C" text="Complete" />
+      </items>
+    </field>
+    <field name="Subject" type="String" label="Subject" length="50" allowNulls="false" />
+    <field name="Details" type="String" allowNulls="false" allowQBE="false" allowSorting="false" label="Details" />
+    <field name="DueDate" type="DateTime" dataFormatString="g" label="Due Date" />
+    <field name="Username" type="String" label="User" length="50">
+      <items style="UserNameLookup" />
+    </field>
+    <field name="SiteCommunicationSiteContactEmailId" type="Int32" label="Email">
+      <items style="Lookup" dataController="SiteContactEmail" newDataView="createForm1" dataValueField="SiteContactEmailID" dataTextField="contactEmailLable" copy="SiteContactID = SiteContactID" />
+    </field>
+    <field name="SitecontactemailEmail" type="String" readOnly="true" label="Sitecontactemail Email" length="50" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Communications">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="SiteCommunicationTypeID" aliasFieldName="SiteCommunicationTypeDescription" />
+        <dataField fieldName="SiteCommunicationCategoryID" aliasFieldName="SiteCommunicationCategorycategoryDescription" />
+        <dataField fieldName="SiteContactID" aliasFieldName="SiteCommunicationContactfirstName" />
+        <dataField fieldName="SiteCommunicationcontactLastname" columns="50" />
+        <dataField fieldName="SiteContactcontactTypecontactTypeDetail" columns="50" />
+        <dataField fieldName="SiteID" aliasFieldName="Sitejobno" />
+        <dataField fieldName="SiteCommunicationSiteName" columns="30" />
+        <dataField fieldName="MessageDate" columns="20" />
+        <dataField fieldName="CreatedDate" columns="20" />
+        <dataField fieldName="CreatedBy" columns="50" />
+        <dataField fieldName="FollowUpTo" columns="15" />
+        <dataField fieldName="Priority" columns="15" />
+        <dataField fieldName="Status" columns="5" />
+        <dataField fieldName="Subject" columns="50" />
+        <dataField fieldName="Details" rows="5" />
+        <dataField fieldName="DueDate" columns="20" />
+        <dataField fieldName="Username" columns="50" />
+        <dataField fieldName="SiteCommunicationSiteContactEmailId" aliasFieldName="SitecontactemailEmail" />
+        <dataField fieldName="SitecommunicationcategoryType" columns="1" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Communication">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Communication" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="SiteCommunicationTypeID" aliasFieldName="SiteCommunicationTypeDescription" />
+            <dataField fieldName="SiteCommunicationCategoryID" aliasFieldName="SiteCommunicationCategorycategoryDescription" />
+            <dataField fieldName="SitecommunicationcategoryType" columns="1" />
+            <dataField fieldName="SiteContactID" aliasFieldName="SiteCommunicationContactfirstName" />
+            <dataField fieldName="SiteCommunicationcontactLastname" columns="50" />
+            <dataField fieldName="SiteContactcontactTypecontactTypeDetail" columns="50" />
+            <dataField fieldName="SiteID" aliasFieldName="Sitejobno" />
+            <dataField fieldName="SiteCommunicationSiteName" columns="30" />
+            <dataField fieldName="MessageDate" columns="20" />
+            <dataField fieldName="CreatedDate" columns="20" />
+            <dataField fieldName="CreatedBy" columns="50" textMode="Static" />
+            <dataField fieldName="FollowUpTo" columns="15" />
+            <dataField fieldName="Priority" columns="15" />
+            <dataField fieldName="Status" columns="3" />
+            <dataField fieldName="Subject" columns="50" />
+            <dataField fieldName="Details" rows="5" />
+            <dataField fieldName="DueDate" columns="20" />
+            <dataField fieldName="Username" columns="50" />
+            <dataField fieldName="SiteCommunicationSiteContactEmailId" aliasFieldName="SitecontactemailEmail" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="New Communication">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="New Communication" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="SiteCommunicationTypeID" aliasFieldName="SiteCommunicationTypeDescription" />
+            <dataField fieldName="SiteCommunicationCategoryID" aliasFieldName="SiteCommunicationCategorycategoryDescription" />
+            <dataField fieldName="SitecommunicationcategoryType" columns="1" />
+            <dataField fieldName="SiteContactID" aliasFieldName="SiteCommunicationContactfirstName" />
+            <dataField fieldName="SiteCommunicationcontactLastname" columns="50" />
+            <dataField fieldName="SiteContactcontactTypecontactTypeDetail" columns="50" />
+            <dataField fieldName="SiteID" aliasFieldName="Sitejobno" />
+            <dataField fieldName="SiteCommunicationSiteName" columns="30" />
+            <dataField fieldName="MessageDate" columns="20" />
+            <dataField fieldName="CreatedDate" columns="20" />
+            <dataField fieldName="CreatedBy" columns="50" hidden="true" />
+            <dataField fieldName="FollowUpTo" columns="15" />
+            <dataField fieldName="Priority" columns="15" />
+            <dataField fieldName="Status" columns="3" />
+            <dataField fieldName="Subject" columns="50" />
+            <dataField fieldName="Details" rows="5" />
+            <dataField fieldName="DueDate" columns="20" />
+            <dataField fieldName="Username" columns="50" />
+            <dataField fieldName="SiteCommunicationSiteContactEmailId" aliasFieldName="SitecontactemailEmail" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="NewEmail" type="Form" commandId="command1" label="New Email">
+      <headerText />
+      <categories>
+        <category headerText="About" id="c2" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="SiteCommunicationTypeID" aliasFieldName="SiteCommunicationTypeDescription" />
+            <dataField fieldName="SiteCommunicationCategoryID" aliasFieldName="SiteCommunicationCategorycategoryDescription" />
+            <dataField fieldName="SiteID" columns="15" hidden="true" />
+            <dataField fieldName="SiteCommunicationSiteContactEmailId" columns="15" />
+            <dataField fieldName="SiteContactID" columns="15" hidden="true" />
+            <dataField fieldName="Username" columns="50" textMode="Static" />
+          </dataFields>
+        </category>
+        <category headerText="Header" id="c3">
+          <dataFields>
+            <dataField fieldName="MessageDate" columns="20" />
+            <dataField fieldName="Priority" columns="15" />
+            <dataField fieldName="Status" columns="3" />
+            <dataField fieldName="Subject" columns="50" />
+            <dataField fieldName="CreatedBy" columns="50" hidden="true" />
+          </dataFields>
+        </category>
+        <category headerText="Body" id="c4">
+          <dataFields>
+            <dataField fieldName="Details" rows="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="NewTask" type="Form" commandId="command1" label="New Task">
+      <headerText />
+      <categories>
+        <category headerText="About" id="c2" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="SiteCommunicationTypeID" aliasFieldName="SiteCommunicationTypeDescription" columns="3" />
+            <dataField fieldName="SiteCommunicationCategoryID" aliasFieldName="SiteCommunicationCategorycategoryDescription" />
+            <dataField fieldName="SiteID" aliasFieldName="Sitejobno" />
+            <dataField fieldName="SiteContactID" aliasFieldName="SiteCommunicationContactfirstName" watermark="Optional">
+              <headerText />
+              <footerText />
+            </dataField>
+            <dataField fieldName="Username" columns="50" hidden="true" textMode="Static" />
+            <dataField fieldName="SitecommunicationcategoryType" columns="1" hidden="true" />
+          </dataFields>
+        </category>
+        <category headerText="Header" id="c3">
+          <dataFields>
+            <dataField fieldName="FollowUpTo" columns="15" hidden="true" />
+            <dataField fieldName="DueDate" columns="20" />
+            <dataField fieldName="Priority" columns="15" />
+            <dataField fieldName="Status" columns="3" />
+            <dataField fieldName="Subject" columns="50" />
+            <dataField fieldName="CreatedBy" columns="50" hidden="true" />
+          </dataFields>
+        </category>
+        <category id="c1" headerText="Body">
+          <description />
+          <dataFields>
+            <dataField fieldName="Details" rows="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="editEmail" type="Form" commandId="command1" label="Review Email">
+      <headerText />
+      <categories>
+        <category headerText="About" id="c2" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="SiteCommunicationTypeID" aliasFieldName="SiteCommunicationTypeDescription" />
+            <dataField fieldName="SiteCommunicationCategoryID" aliasFieldName="SiteCommunicationCategorycategoryDescription" />
+            <dataField fieldName="SiteID" aliasFieldName="Sitejobno" />
+            <dataField fieldName="SiteCommunicationSiteContactEmailId" columns="15" />
+            <dataField fieldName="SiteContactID" columns="15" hidden="true" />
+            <dataField fieldName="SiteContactcontactTypecontactTypeDetail" columns="50" />
+            <dataField fieldName="Username" columns="50" textMode="Static" />
+            <dataField fieldName="SitecommunicationcategoryType" columns="1" hidden="true" />
+          </dataFields>
+        </category>
+        <category headerText="Header" id="c3">
+          <dataFields>
+            <dataField fieldName="MessageDate" columns="20" />
+            <dataField fieldName="Priority" columns="15" />
+            <dataField fieldName="Status" columns="3" />
+            <dataField fieldName="Subject" columns="50" />
+            <dataField fieldName="CreatedBy" columns="50" hidden="true" textMode="Static" />
+          </dataFields>
+        </category>
+        <category headerText="Body" id="c4">
+          <dataFields>
+            <dataField fieldName="Details" rows="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="editTask" type="Form" commandId="command1" label="Review Task">
+      <headerText />
+      <categories>
+        <category headerText="About" id="c2" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="SiteCommunicationTypeID" aliasFieldName="SiteCommunicationTypeDescription" />
+            <dataField fieldName="SiteCommunicationCategoryID" aliasFieldName="SiteCommunicationCategorycategoryDescription" />
+            <dataField fieldName="SiteID" aliasFieldName="Sitejobno" />
+            <dataField fieldName="SiteContactID" aliasFieldName="SiteCommunicationContactfirstName" />
+            <dataField fieldName="Username" columns="50" hidden="true" textMode="Static" />
+            <dataField fieldName="SitecommunicationcategoryType" columns="1" hidden="true" />
+          </dataFields>
+        </category>
+        <category headerText="Header" id="c3">
+          <dataFields>
+            <dataField fieldName="FollowUpTo" columns="15" hidden="true" />
+            <dataField fieldName="DueDate" columns="20" />
+            <dataField fieldName="Priority" columns="15" />
+            <dataField fieldName="Status" columns="3" />
+            <dataField fieldName="Subject" columns="50" />
+            <dataField fieldName="CreatedBy" columns="50" textMode="Static" />
+          </dataFields>
+        </category>
+        <category id="c1" headerText="Body">
+          <description />
+          <dataFields>
+            <dataField fieldName="Details" rows="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="NewEmailContact" type="Form" commandId="command1" label="New Email">
+      <headerText />
+      <categories>
+        <category headerText="About" id="c2" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="SiteCommunicationTypeID" aliasFieldName="SiteCommunicationTypeDescription" />
+            <dataField fieldName="SiteCommunicationCategoryID" aliasFieldName="SiteCommunicationCategorycategoryDescription" />
+            <dataField fieldName="SiteID" columns="15" hidden="true" />
+            <dataField fieldName="SiteCommunicationSiteContactEmailId" columns="15" />
+            <dataField fieldName="SiteContactID" columns="15" hidden="true" />
+            <dataField fieldName="Username" columns="50" textMode="Static" />
+          </dataFields>
+        </category>
+        <category headerText="Header" id="c3">
+          <dataFields>
+            <dataField fieldName="MessageDate" columns="20" />
+            <dataField fieldName="Priority" columns="15" />
+            <dataField fieldName="Status" columns="3" hidden="true" />
+            <dataField fieldName="Subject" columns="50" />
+            <dataField fieldName="CreatedBy" columns="50" hidden="true" />
+          </dataFields>
+        </category>
+        <category headerText="Body" id="c4">
+          <dataFields>
+            <dataField fieldName="Details" rows="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a100" commandName="Select" commandArgument="editEmail" whenClientScript="[SitecommunicationcategoryType] == 'E'" />
+      <action id="a101" commandName="Select" commandArgument="editTask" whenClientScript="[SitecommunicationcategoryType] == 'T'" />
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="Delete" />
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+      <action id="a102" commandName="New" commandArgument="NewEmailContact" whenTag="contact" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a100" commandName="Edit" commandArgument="editEmail" whenClientScript="[SitecommunicationcategoryType] == 'E'" />
+      <action id="a101" commandName="Edit" commandArgument="editTask" whenClientScript="[SitecommunicationcategoryType] == 'T'" />
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="Delete" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" whenTag="newCommunication" />
+      <action id="a100" commandName="New" commandArgument="NewEmail" cssClass="NewIcon" headerText="New Email" />
+      <action id="a101" commandName="New" commandArgument="NewTask" cssClass="NewIcon" headerText="New Task" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a5" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="New" type="Sql" phase="Execute" view="NewTask"><![CDATA[set @Session_CommunicationType = 'T'
+SET @Username = @BusinessRules_UserName]]></rule>
+    <rule id="r101" commandName="New" type="Sql" phase="Execute" view="NewEmail"><![CDATA[SET @Username = @BusinessRules_UserName
+set @Session_CommunicationType = 'E'
+set @Status = 'C'
+set @SiteID = @Session_Siteid]]></rule>
+    <rule id="r102" commandName="Insert" type="Sql" phase="Before"><![CDATA[SET @CreatedBy = @BusinessRules_UserName
+SET @Username = @BusinessRules_UserName]]></rule>
+  </businessRules>
+</dataController>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Region" alias="Region" created="2017-08-01T14:59:08" modified="2017-08-01T15:00:26" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Manager" parentTableSchema="dbo" parentTableName="Manager" x="761" y="53">
+      <foreignKeyColumn columnName="managerid" parentColumnName="managerid" />
+    </foreignKey>
+    <foreignKey id="User" parentTableSchema="dbo" parentTableName="User" x="519" y="207">
+      <foreignKeyColumn columnName="userid" parentColumnName="userid" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="regionid" fieldName="Regionid" label="Regionid" />
+    <column name="company_code" fieldName="CompanyCode" label="Company Code" />
+    <column name="description" fieldName="Description" label="Description" />
+    <column name="managerid" fieldName="Managerid" label="Managerid" aliasColumnName="displayname" aliasForeignKey="Manager" />
+    <column name="displayname" fieldName="ManagerDisplayname" label="Manager Displayname" foreignKey="Manager" />
+    <column name="userid" fieldName="Userid" label="Userid" aliasColumnName="firstname" aliasForeignKey="User" />
+    <column name="firstname" fieldName="UserFirstname" label="User Firstname" foreignKey="User" />
+    <column name="lastname" fieldName="UserLastname" label="User Lastname" foreignKey="User" />
+  </columns>
+</dataModel>

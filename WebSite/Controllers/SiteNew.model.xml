@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="siteNew" alias="siteNew" created="2017-08-01T14:51:26" modified="2017-08-01T15:17:47" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Manager" parentTableSchema="dbo" parentTableName="Manager" x="393" y="20">
+      <foreignKeyColumn columnName="managerid" parentColumnName="managerid" />
+    </foreignKey>
+    <foreignKey id="SiteBreakRule" parentTableSchema="dbo" parentTableName="SiteBreakRule" x="460" y="1750">
+      <foreignKeyColumn columnName="sitebreakruleid" parentColumnName="sitebreakruleid" />
+    </foreignKey>
+    <foreignKey id="Region" parentTableSchema="dbo" parentTableName="Region" x="584" y="253">
+      <foreignKeyColumn columnName="regionid" parentColumnName="regionid" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="siteid" fieldName="Siteid" label="Siteid" />
+    <column name="jobno" fieldName="Jobno" label="Jobno" />
+    <column name="jobstatus" fieldName="Jobstatus" label="Jobstatus" />
+    <column name="jobtype" fieldName="Jobtype" label="Jobtype" />
+    <column name="sitetype_old" fieldName="SitetypeOld" label="Sitetype Old" />
+    <column name="sitetype" fieldName="Sitetype" label="Sitetype" />
+    <column name="managerid" fieldName="Managerid" label="Managerid" aliasColumnName="displayname" aliasForeignKey="Manager" />
+    <column name="displayname" fieldName="ManagerDisplayname" label="Manager Displayname" foreignKey="Manager" />
+    <column name="regionid" fieldName="Regionid" label="Regionid" aliasColumnName="description" aliasForeignKey="Region" />
+    <column name="description" fieldName="RegionDescription" label="Region Description" foreignKey="Region" />
+    <column name="ardivision_no" fieldName="ArdivisionNo" label="Ardivision No" />
+    <column name="customer_no" fieldName="CustomerNo" label="Customer No" />
+    <column name="company_code" fieldName="CompanyCode" label="Company Code" />
+    <column name="site_name" fieldName="SiteName" label="Site Name" />
+    <column name="parentid" fieldName="Parentid" label="Parentid" />
+    <column name="file_as" fieldName="FileAs" label="File As" />
+    <column name="timesheet_status" fieldName="TimesheetStatus" label="Timesheet Status" />
+    <column name="propertymanagementid" fieldName="Propertymanagementid" label="Propertymanagementid" />
+    <column name="address1" fieldName="Address1" label="Address1" />
+    <column name="address2" fieldName="Address2" label="Address2" />
+    <column name="address3" fieldName="Address3" label="Address3" />
+    <column name="city" fieldName="City" label="City" />
+    <column name="state" fieldName="State" label="State" />
+    <column name="zipcode" fieldName="Zipcode" label="Zipcode" />
+    <column name="zipcode_new" fieldName="ZipcodeNew" label="Zipcode New" />
+    <column name="country_code" fieldName="CountryCode" label="Country Code" />
+    <column name="city_section" fieldName="CitySection" label="City Section" />
+    <column name="city_section_new" fieldName="CitySectionNew" label="City Section New" />
+    <column name="citytaxcode" fieldName="Citytaxcode" label="Citytaxcode" />
+    <column name="address2_validated" fieldName="Address2Validated" label="Address2 Validated" />
+    <column name="phone" fieldName="Phone" label="Phone" />
+    <column name="phone_ext" fieldName="PhoneExt" label="Phone Ext" />
+    <column name="fax" fieldName="Fax" label="Fax" />
+    <column name="primary_email_address" fieldName="PrimaryEmailAddress" label="Primary Email Address" />
+    <column name="website" fieldName="Website" label="Website" />
+    <column name="budget_dollars" fieldName="BudgetDollars" label="Budget Dollars" />
+    <column name="budget_hours" fieldName="BudgetHours" label="Budget Hours" />
+    <column name="budget_salary_hours" fieldName="BudgetSalaryHours" label="Budget Salary Hours" format="c" />
+    <column name="new_budget_dollars" fieldName="NewBudgetDollars" label="New Budget Dollars" />
+    <column name="new_budget_hours" fieldName="NewBudgetHours" label="New Budget Hours" />
+    <column name="new_budget_salary_hours" fieldName="NewBudgetSalaryHours" label="New Budget Salary Hours" format="c" />
+    <column name="new_budget_effective_date" fieldName="NewBudgetEffectiveDate" label="New Budget Effective Date" format="g" />
+    <column name="established_date" fieldName="EstablishedDate" label="Established Date" format="g" />
+    <column name="contract_renewal_date" fieldName="ContractRenewalDate" label="Contract Renewal Date" format="g" />
+    <column name="termination_date" fieldName="TerminationDate" label="Termination Date" format="g" />
+    <column name="note" fieldName="Note" label="Note" />
+    <column name="created_date" fieldName="CreatedDate" label="Created Date" format="g" />
+    <column name="created_by" fieldName="CreatedBy" label="Created By" />
+    <column name="updated_date" fieldName="UpdatedDate" label="Updated Date" format="g" />
+    <column name="updated_by" fieldName="UpdatedBy" label="Updated By" />
+    <column name="deleted" fieldName="Deleted" label="Deleted" />
+    <column name="skip_on_report" fieldName="SkipOnReport" label="Skip On Report" />
+    <column name="isUnion" fieldName="IsUnion" label="is Union" />
+    <column name="budget_hours_future" fieldName="BudgetHoursFuture" label="Budget Hours Future" />
+    <column name="budget_dollars_future" fieldName="BudgetDollarsFuture" label="Budget Dollars Future" />
+    <column name="budget_salary_hours_future" fieldName="BudgetSalaryHoursFuture" label="Budget Salary Hours Future" format="c" />
+    <column name="budget_future_effective_date" fieldName="BudgetFutureEffectiveDate" label="Budget Future Effective Date" format="g" />
+    <column name="billingcyclecode" fieldName="Billingcyclecode" label="Billingcyclecode" />
+    <column name="vendorid_default" fieldName="VendoridDefault" label="Vendorid Default" />
+    <column name="isSpecialProject" fieldName="IsSpecialProject" label="is Special Project" />
+    <column name="isStandby" fieldName="IsStandby" label="is Standby" />
+    <column name="budget_effective_date" fieldName="BudgetEffectiveDate" label="Budget Effective Date" format="g" />
+    <column name="isholidayOTallowed" fieldName="IsholidayOtallowed" label="isholiday O Tallowed" />
+    <column name="sitedoc_filename_nextseq" fieldName="SitedocFilenameNextseq" label="Sitedoc Filename Nextseq" />
+    <column name="siteptomunid" fieldName="Siteptomunid" label="Siteptomunid" />
+    <column name="terminated_date" fieldName="TerminatedDate" label="Terminated Date" format="g" />
+    <column name="lastinspection_date" fieldName="LastinspectionDate" label="Lastinspection Date" format="g" />
+    <column name="sitelogo_location" fieldName="SitelogoLocation" label="Sitelogo Location" />
+    <column name="is421a" fieldName="Is421a" label="Is421a" />
+    <column name="pto_type" fieldName="PtoType" label="Pto Type" />
+    <column name="pto_vac" fieldName="PtoVac" label="Pto Vac" />
+    <column name="pto_sic" fieldName="PtoSic" label="Pto Sic" />
+    <column name="pto_per" fieldName="PtoPer" label="Pto Per" />
+    <column name="holiday_count" fieldName="HolidayCount" label="Holiday Count" />
+    <column name="pto_vac_comment" fieldName="PtoVacComment" label="Pto Vac Comment" />
+    <column name="pto_sic_comment" fieldName="PtoSicComment" label="Pto Sic Comment" />
+    <column name="pto_per_comment" fieldName="PtoPerComment" label="Pto Per Comment" />
+    <column name="holiday_type" fieldName="HolidayType" label="Holiday Type" />
+    <column name="holiday_planid" fieldName="HolidayPlanid" label="Holiday Planid" />
+    <column name="holiday_comment" fieldName="HolidayComment" label="Holiday Comment" />
+    <column name="site_union_comment" fieldName="SiteUnionComment" label="Site Union Comment" />
+    <column name="min_wage_jurisdiction" fieldName="MinWageJurisdiction" label="Min Wage Jurisdiction" />
+    <column name="map_isupdated" fieldName="MapIsupdated" label="Map Isupdated" />
+    <column name="map_latitude_coordinate" fieldName="MapLatitudeCoordinate" label="Map Latitude Coordinate" />
+    <column name="map_longitude_coordinate" fieldName="MapLongitudeCoordinate" label="Map Longitude Coordinate" />
+    <column name="adp_lastsync_date" fieldName="AdpLastsyncDate" label="Adp Lastsync Date" format="g" />
+    <column name="paygroup_code" fieldName="PaygroupCode" label="Paygroup Code" />
+    <column name="companyregion_code" fieldName="CompanyregionCode" label="Companyregion Code" />
+    <column name="timezone_differential" fieldName="TimezoneDifferential" label="Timezone Differential" />
+    <column name="showOrgChart" fieldName="ShowOrgChart" label="show Org Chart" />
+    <column name="sitebreakruleid" fieldName="Sitebreakruleid" label="Sitebreakruleid" aliasColumnName="breakrule_desc" aliasForeignKey="SiteBreakRule" />
+    <column name="breakrule_desc" fieldName="SitebreakruleBreakruleDesc" label="Sitebreakrule Breakrule Desc" foreignKey="SiteBreakRule" />
+    <column name="isbillback_sup" fieldName="IsbillbackSup" label="Isbillback Sup" />
+    <column name="isbillback_con" fieldName="IsbillbackCon" label="Isbillback Con" />
+    <column name="isbillback_equ" fieldName="IsbillbackEqu" label="Isbillback Equ" />
+    <column name="billback_handlingcharge" fieldName="BillbackHandlingcharge" label="Billback Handlingcharge" />
+    <column name="budget_sup_exist" fieldName="BudgetSupExist" label="Budget Sup Exist" />
+    <column name="budget_con_exist" fieldName="BudgetConExist" label="Budget Con Exist" />
+    <column name="budget_equ_exist" fieldName="BudgetEquExist" label="Budget Equ Exist" />
+    <column name="last_paid_date" fieldName="LastPaidDate" label="Last Paid Date" format="g" />
+    <column name="last_paid_assoc_count" fieldName="LastPaidAssocCount" label="Last Paid Assoc Count" />
+  </columns>
+</dataModel>

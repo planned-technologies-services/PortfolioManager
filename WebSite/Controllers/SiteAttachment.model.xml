@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="SiteAttachment" alias="SiteAttachment" created="2017-07-18T10:06:39" modified="2017-07-18T10:07:57" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="AttachmentType" parentTableSchema="dbo" parentTableName="SiteAttachmentType" x="341" y="20">
+      <foreignKeyColumn columnName="AttachmentTypeId" parentColumnName="siteAttachmentTypeId" />
+    </foreignKey>
+    <foreignKey id="Site" parentTableSchema="dbo" parentTableName="Site" x="341" y="181">
+      <foreignKeyColumn columnName="SiteId" parentColumnName="siteid" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="siteAttachmentId" fieldName="SiteAttachmentID" label="site Attachment Id" />
+    <column name="AttachmentTypeId" fieldName="AttachmentTypeID" label="Attachment Type Id" aliasColumnName="AttachmentTypeDescription" aliasForeignKey="AttachmentType" />
+    <column name="AttachmentTypeDescription" fieldName="AttachmentTypeDescription" label="Attachment Type Description" foreignKey="AttachmentType" />
+    <column name="FileName" fieldName="FileName" label="File Name" />
+    <column name="Length" fieldName="Length" label="Length" />
+    <column name="ContentType" fieldName="ContentType" label="Content Type" />
+    <column name="SiteId" fieldName="SiteID" label="Site Id" aliasColumnName="jobno" aliasForeignKey="Site" />
+    <column name="jobno" fieldName="Sitejobno" label="Sitejobno" foreignKey="Site" />
+    <column name="site_name" fieldName="SiteAttachmentSiteName" label="Site Attachment Site Name" foreignKey="Site" />
+    <column name="createdDate" fieldName="CreatedDate" label="created Date" format="g" />
+    <column name="createdBy" fieldName="CreatedBy" label="created By" />
+  </columns>
+</dataModel>

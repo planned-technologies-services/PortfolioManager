@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="JobCostActual" alias="JobCostActual" created="2017-07-19T16:19:38" modified="2017-07-19T16:39:04" x="20" y="25" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Site" parentTableSchema="dbo" parentTableName="Site" x="325" y="20">
+      <foreignKeyColumn columnName="jobno" parentColumnName="jobno" />
+    </foreignKey>
+    <foreignKey id="JobCostCode" parentTableSchema="dbo" parentTableName="JobCostCode" x="331" y="164">
+      <foreignKeyColumn columnName="costcode" parentColumnName="costcode" />
+      <foreignKeyColumn columnName="companycode" parentColumnName="companycode" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="jobcostdetailbudgetid" fieldName="Jobcostdetailbudgetid" label="Jobcostdetailbudgetid" format="c" />
+    <column name="companycode" fieldName="Companycode" label="Companycode" />
+    <column name="jobno" fieldName="Jobno" label="Jobno" aliasColumnName="siteid" aliasForeignKey="Site" />
+    <column name="siteid" fieldName="SiteSiteid" label="Site Siteid" foreignKey="Site" />
+    <column name="site_name" fieldName="SiteName" label="Site Name" foreignKey="Site" />
+    <column name="tyear" fieldName="Tyear" label="Tyear" />
+    <column name="tmonth" fieldName="Tmonth" label="Tmonth" />
+    <column name="costcode" fieldName="Costcode" label="Costcode" aliasColumnName="description" aliasForeignKey="JobCostCode" />
+    <column name="description" fieldName="JobcostcodeDescription" label="Jobcostcode Description" foreignKey="JobCostCode" />
+    <column name="costrev" fieldName="Costrev" label="Costrev" format="c" />
+    <column name="costrevbudget" fieldName="Costrevbudget" label="Costrevbudget" format="c" />
+  </columns>
+</dataModel>

@@ -1,0 +1,269 @@
+<log xmlns="urn:schemas-codeontime-com:xml-builder" xmlns:aquarium="urn:schemas-codeontime-com:data-aquarium" xmlns:app="urn:schemas-codeontime-com:data-aquarium-application" xmlns:a="urn:schemas-codeontime-com:data-aquarium">
+  <c y="NodeSet" t="2017-07-19T10:23:25">
+    <pages />
+    <renameRefs type="view">
+      <Controller>SiteTask</Controller>
+      <Name>grid1</Name>
+      <NewName>TaskGrid</NewName>
+    </renameRefs>
+  </c>
+  <c y="NodeSet" t="2017-07-19T12:51:20">
+    <pages />
+    <renameRefs type="controller">
+      <Name>SiteTaskType</Name>
+      <NewName>TaskType</NewName>
+    </renameRefs>
+  </c>
+  <c y="NodeSet" t="2017-07-19T12:54:07">
+    <pages />
+    <renameRefs type="controller">
+      <Name>SiteTask</Name>
+      <NewName>Task</NewName>
+    </renameRefs>
+  </c>
+  <c y="NodeSet" t="2017-07-19T12:55:24">
+    <pages />
+    <renameRefs type="controller">
+      <Name>Task</Name>
+      <NewName>SiteTask</NewName>
+    </renameRefs>
+  </c>
+  <c y="NodeSet" t="2017-07-19T12:55:34">
+    <pages />
+    <renameRefs type="controller">
+      <Name>TaskType</Name>
+      <NewName>SiteTaskType</NewName>
+    </renameRefs>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:48">
+    <pages />
+    <insert type="page">
+      <Name>Maintenance</Name>
+      <Generate>Always</Generate>
+      <UseExtenders>false</UseExtenders>
+      <Path>Maintenance</Path>
+      <Title>Maintenance</Title>
+      <Roles>*</Roles>
+    </insert>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="SiteAttachment" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="SiteAttachmentType" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="SiteContact" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="SiteContactType" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="SiteContactAddress" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="SiteContactAddressType" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="SiteContactEmail" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="SiteContactEmailType" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="SiteContactPhone" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="SiteContactPhoneType" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="SiteCommunication" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="SiteCommunicationCategory" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="SiteCommunicationType" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="SiteTask" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="SiteTaskType" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="SiteNotes" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="SiteNoteType" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="Payroll" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="Employee" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="EmployeeRateHistory" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:02:55">
+    <page name="Maintenance" />
+    <move>
+      <page name="JobCostActual" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:06:16">
+    <page name="Home" />
+    <update>
+      <Template>Jumbotron</Template>
+      <UseExtenders>false</UseExtenders>
+    </update>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:07:37">
+    <page name="Home" />
+    <update>
+      <Template>Carousel</Template>
+    </update>
+  </c>
+  <c y="NodeSet" t="2017-07-19T21:08:37">
+    <page name="Home" />
+    <update>
+      <Template />
+    </update>
+  </c>
+  <c y="NodeSet" t="2017-07-20T06:36:19">
+    <page name="Home" />
+    <update>
+      <Template>Jumbotron</Template>
+      <Generate>FirstTimeOnly</Generate>
+    </update>
+  </c>
+  <c y="NodeSet" t="2017-07-20T06:44:52">
+    <page name="Home" />
+    <update>
+      <Generate>Always</Generate>
+    </update>
+  </c>
+  <c y="NodeSet" t="2017-07-20T06:56:04">
+    <page name="Home" />
+    <update>
+      <Generate>FirstTimeOnly</Generate>
+    </update>
+  </c>
+  <c y="NodeSet" t="2017-07-25T14:47:21">
+    <page name="FormHrWorkerscomp" />
+    <rename>Workers comp</rename>
+  </c>
+  <c y="NodeSet" t="2017-07-25T14:47:24">
+    <page name="Maintenance" />
+    <move>
+      <page name="FormHrWorkerscomp" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-08-01T14:14:17">
+    <page name="Maintenance" />
+    <move>
+      <page name="SmsMessageLog" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-08-01T14:22:14">
+    <page name="Maintenance" />
+    <move>
+      <page name="SiteBreakRule" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-08-01T15:03:00">
+    <page name="Maintenance" />
+    <move>
+      <page name="Region" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-08-01T15:18:37">
+    <page name="Maintenance" />
+    <move>
+      <page name="Manager" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-08-01T15:47:57">
+    <page name="Maintenance" />
+    <move>
+      <page name="VCollectCustomerInvoiceAll" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-08-01T15:48:20">
+    <page name="VCollectCustomerInvoiceAll" />
+    <rename>Customer Invoice</rename>
+  </c>
+  <c y="NodeSet" t="2017-08-02T10:08:01">
+    <page name="Maintenance" />
+    <move>
+      <page name="County" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2017-08-02T13:22:50">
+    <page name="Maintenance" />
+    <move>
+      <page name="ZipcodeDirectory" />
+    </move>
+  </c>
+</log>

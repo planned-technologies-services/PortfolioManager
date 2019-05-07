@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="SiteBreakRule" conflictDetection="overwriteChanges" label="Site Break Rule" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"SiteBreakRule"."sitebreakruleid" "Sitebreakruleid"
+	,"SiteBreakRule"."breakrule_type" "BreakruleType"
+	,"SiteBreakRule"."breakrule_desc" "BreakruleDesc"
+	,"SiteBreakRule"."breakrule_minute_factor" "BreakruleMinuteFactor"
+	,"SiteBreakRule"."breakule_min_work_minutes" "BreakuleMinWorkMinutes"
+	,"SiteBreakRule"."breakrule_comment" "BreakruleComment"
+	,"SiteBreakRule"."active" "Active"
+	,"SiteBreakRule"."created_date" "CreatedDate"
+	,"SiteBreakRule"."created_by" "CreatedBy"
+	,"SiteBreakRule"."updated_date" "UpdatedDate"
+	,"SiteBreakRule"."updated_by" "UpdatedBy"
+from "dbo"."SiteBreakRule" "SiteBreakRule"
+]]></text>
+    </command>
+    <command id="sitebreakruleidIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Sitebreakruleid" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Sitebreakruleid" type="Int32" allowNulls="false" isPrimaryKey="true" label="Sitebreakruleid" readOnly="true" />
+    <field name="BreakruleType" type="String" label="Breakrule Type" length="1" showInSummary="true" />
+    <field name="BreakruleDesc" type="String" allowNulls="false" label="Breakrule Desc" length="50" showInSummary="true" />
+    <field name="BreakruleMinuteFactor" type="Int32" allowNulls="false" default="((0))" label="Breakrule Minute Factor" showInSummary="true" />
+    <field name="BreakuleMinWorkMinutes" type="Decimal" default="((0))" label="Breakule Min Work Minutes" showInSummary="true" />
+    <field name="BreakruleComment" type="String" label="Breakrule Comment" length="50" showInSummary="true" />
+    <field name="Active" type="String" default="('Y')" label="Active" length="1" />
+    <field name="CreatedDate" type="DateTime" dataFormatString="g" default="(getdate())" label="Created Date" />
+    <field name="CreatedBy" type="Int32" label="Created By" />
+    <field name="UpdatedDate" type="DateTime" dataFormatString="g" label="Updated Date" />
+    <field name="UpdatedBy" type="Int32" label="Updated By" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Site Break Rule">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="BreakruleType" columns="1" />
+        <dataField fieldName="BreakruleDesc" columns="50" />
+        <dataField fieldName="BreakruleMinuteFactor" columns="15" />
+        <dataField fieldName="BreakuleMinWorkMinutes" columns="15" />
+        <dataField fieldName="BreakruleComment" columns="50" />
+        <dataField fieldName="Active" columns="1" />
+        <dataField fieldName="CreatedDate" columns="20" />
+        <dataField fieldName="CreatedBy" columns="15" />
+        <dataField fieldName="UpdatedDate" columns="20" />
+        <dataField fieldName="UpdatedBy" columns="15" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Site Break Rule">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Site Break Rule" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="BreakruleType" columns="1" />
+            <dataField fieldName="BreakruleDesc" columns="50" />
+            <dataField fieldName="BreakruleMinuteFactor" columns="15" />
+            <dataField fieldName="BreakuleMinWorkMinutes" columns="15" />
+            <dataField fieldName="BreakruleComment" columns="50" />
+            <dataField fieldName="Active" columns="1" />
+            <dataField fieldName="CreatedDate" columns="20" />
+            <dataField fieldName="CreatedBy" columns="15" />
+            <dataField fieldName="UpdatedDate" columns="20" />
+            <dataField fieldName="UpdatedBy" columns="15" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="New Site Break Rule">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="New Site Break Rule" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="BreakruleType" columns="1" />
+            <dataField fieldName="BreakruleDesc" columns="50" />
+            <dataField fieldName="BreakruleMinuteFactor" columns="15" />
+            <dataField fieldName="BreakuleMinWorkMinutes" columns="15" />
+            <dataField fieldName="BreakruleComment" columns="50" />
+            <dataField fieldName="Active" columns="1" />
+            <dataField fieldName="CreatedDate" columns="20" />
+            <dataField fieldName="CreatedBy" columns="15" />
+            <dataField fieldName="UpdatedDate" columns="20" />
+            <dataField fieldName="UpdatedBy" columns="15" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="Delete" />
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="Delete" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+</dataController>

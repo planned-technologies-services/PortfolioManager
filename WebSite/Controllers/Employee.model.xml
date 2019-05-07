@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Employee" alias="Employee" created="2017-07-19T15:55:23" modified="2017-07-31T10:01:09" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Site" parentTableSchema="dbo" parentTableName="Site" x="398" y="20">
+      <foreignKeyColumn columnName="homedept" parentColumnName="jobno" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="employeeid" fieldName="Employeeid" label="Employeeid" />
+    <column name="ultipro_employeeid" fieldName="UltiproEmployeeid" label="Ultipro Employeeid" />
+    <column name="company_code" fieldName="CompanyCode" label="Company Code" />
+    <column name="site_code" fieldName="SiteCode" label="Site Code" />
+    <column name="filenumber" fieldName="Filenumber" label="Filenumber" />
+    <column name="first_name" fieldName="FirstName" label="First Name" />
+    <column name="last_name" fieldName="LastName" label="Last Name" />
+    <column name="employment_status" fieldName="EmploymentStatus" label="Employment Status" />
+    <column name="employement_status_override" fieldName="EmployementStatusOverride" label="Employement Status Override" />
+    <column name="union_status" fieldName="UnionStatus" label="Union Status" />
+    <column name="lastpaid_date" fieldName="LastpaidDate" label="Lastpaid Date" format="g" />
+    <column name="position_code" fieldName="PositionCode" label="Position Code" />
+    <column name="position" fieldName="Position" label="Position" />
+    <column name="address1" fieldName="Address1" label="Address1" />
+    <column name="address2" fieldName="Address2" label="Address2" />
+    <column name="city" fieldName="City" label="City" />
+    <column name="state" fieldName="State" label="State" />
+    <column name="zipcode" fieldName="Zipcode" label="Zipcode" />
+    <column name="phone_home" fieldName="PhoneHome" label="Phone Home" />
+    <column name="phone_mobile" fieldName="PhoneMobile" label="Phone Mobile" />
+    <column name="email" fieldName="Email" label="Email" />
+    <column name="gender" fieldName="Gender" label="Gender" />
+    <column name="maritalstatus" fieldName="Maritalstatus" label="Maritalstatus" />
+    <column name="homedept" fieldName="Homedept" label="Homedept" aliasColumnName="site_name" aliasForeignKey="Site" />
+    <column name="site_name" fieldName="SiteName" label="Site Name" foreignKey="Site" />
+    <column name="siteid" fieldName="SiteSiteid" label="Site Siteid" foreignKey="Site" />
+    <column name="employeetype" fieldName="Employeetype" label="Employeetype" />
+    <column name="rate1amt" fieldName="Rate1amt" label="Rate1amt" />
+    <column name="birthdate" fieldName="Birthdate" label="Birthdate" format="g" />
+    <column name="hire_date" fieldName="HireDate" label="Hire Date" format="g" />
+    <column name="rehire_date" fieldName="RehireDate" label="Rehire Date" format="g" />
+    <column name="seniority_date" fieldName="SeniorityDate" label="Seniority Date" format="g" />
+    <column name="termination_date" fieldName="TerminationDate" label="Termination Date" format="g" />
+    <column name="termination_code" fieldName="TerminationCode" label="Termination Code" />
+    <column name="termination_type" fieldName="TerminationType" label="Termination Type" />
+    <column name="termination_reason" fieldName="TerminationReason" label="Termination Reason" />
+    <column name="termination_note" fieldName="TerminationNote" label="Termination Note" />
+    <column name="autopaid" fieldName="Autopaid" label="Autopaid" />
+    <column name="paygroup" fieldName="Paygroup" label="Paygroup" />
+    <column name="ultipro_updated_date" fieldName="UltiproUpdatedDate" label="Ultipro Updated Date" format="g" />
+    <column name="federal_id" fieldName="FederalID" label="Federal Id" />
+    <column name="salhr_type" fieldName="SalhrType" label="Salhr Type" />
+    <column name="autopay" fieldName="Autopay" label="Autopay" />
+    <column name="paidthru_date" fieldName="PaidthruDate" label="Paidthru Date" format="g" />
+    <column name="Allow_401K_Eligibility" fieldName="Allow401kEligibility" label="Allow 401K Eligibility" />
+    <column name="scheduledwork_hours" fieldName="ScheduledworkHours" label="Scheduledwork Hours" />
+    <column name="workstatus" fieldName="Workstatus" label="Workstatus" />
+    <column name="email_comment" fieldName="EmailComment" label="Email Comment" />
+    <column name="email_status" fieldName="EmailStatus" label="Email Status" />
+    <column name="isPTOActive" fieldName="IsPtoactive" label="is PTO Active" />
+    <column name="pto_vac_code" fieldName="PtoVacCode" label="Pto Vac Code" />
+    <column name="pto_sic_code" fieldName="PtoSicCode" label="Pto Sic Code" />
+    <column name="pto_per_code" fieldName="PtoPerCode" label="Pto Per Code" />
+    <column name="pto_note" fieldName="PtoNote" label="Pto Note" />
+    <column name="jobcode" fieldName="Jobcode" label="Jobcode" />
+    <column name="location" fieldName="Location" label="Location" />
+    <column name="last_eec_timestamp" fieldName="LastEecTimestamp" label="Last Eec Timestamp" format="g" />
+    <column name="timeclockcode" fieldName="Timeclockcode" label="Timeclockcode" />
+    <column name="homecompanycode" fieldName="Homecompanycode" label="Homecompanycode" />
+    <column name="orglevel2code" fieldName="Orglevel2code" label="Orglevel2code" />
+    <column name="orglevel3code" fieldName="Orglevel3code" label="Orglevel3code" />
+    <column name="mobile_carrier_code" fieldName="MobileCarrierCode" label="Mobile Carrier Code" />
+    <column name="mobile_carrier_name" fieldName="MobileCarrierName" label="Mobile Carrier Name" />
+    <column name="mobile_phone_type" fieldName="MobilePhoneType" label="Mobile Phone Type" />
+    <column name="mobile_carrier_country_code" fieldName="MobileCarrierCountryCode" label="Mobile Carrier Country Code" />
+    <column name="ask_join_message" fieldName="AskJoinMessage" label="Ask Join Message" />
+    <column name="ethnicid" fieldName="Ethnicid" label="Ethnicid" />
+    <column name="county" fieldName="County" label="County" />
+    <column name="middle_name" fieldName="MiddleName" label="Middle Name" />
+    <column name="i9_doca_code" fieldName="I9DocaCode" label="I9 Doca Code" />
+    <column name="i9_docb_code" fieldName="I9DocbCode" label="I9 Docb Code" />
+    <column name="i9_docc_code" fieldName="I9DoccCode" label="I9 Docc Code" />
+    <column name="federal_dependents_num" fieldName="FederalDependentsNum" label="Federal Dependents Num" />
+    <column name="state_dependents_num" fieldName="StateDependentsNum" label="State Dependents Num" />
+    <column name="federal_maritalstatus" fieldName="FederalMaritalstatus" label="Federal Maritalstatus" />
+    <column name="state_maritalstatus" fieldName="StateMaritalstatus" label="State Maritalstatus" />
+    <column name="local_tax_code" fieldName="LocalTaxCode" label="Local Tax Code" />
+    <column name="income_tax_state" fieldName="IncomeTaxState" label="Income Tax State" />
+    <column name="ethnic_code" fieldName="EthnicCode" label="Ethnic Code" />
+    <column name="last_effective_date" fieldName="LastEffectiveDate" label="Last Effective Date" format="g" />
+    <column name="enrollment_current_year" fieldName="EnrollmentCurrentYear" label="Enrollment Current Year" />
+    <column name="enrollment_pending_year" fieldName="EnrollmentPendingYear" label="Enrollment Pending Year" />
+    <column name="enrollment_prior_year" fieldName="EnrollmentPriorYear" label="Enrollment Prior Year" />
+    <column name="enrollment_exception_note" fieldName="EnrollmentExceptionNote" label="Enrollment Exception Note" />
+    <column name="ws_import_error_status" fieldName="WsImportErrorStatus" label="Ws Import Error Status" />
+    <column name="ws_import_error_msg" fieldName="WsImportErrorMsg" label="Ws Import Error Msg" />
+    <column name="ws_filenumber" fieldName="WsFilenumber" label="Ws Filenumber" />
+    <column name="ws_ultipro_employeeid" fieldName="WsUltiproEmployeeid" label="Ws Ultipro Employeeid" />
+    <column name="last_payrate_increase_date" fieldName="LastPayrateIncreaseDate" label="Last Payrate Increase Date" format="g" />
+    <column name="last_payrate_increase_amount" fieldName="LastPayrateIncreaseAmount" label="Last Payrate Increase Amount" />
+    <column name="last_payrate_increase_perc" fieldName="LastPayrateIncreasePerc" label="Last Payrate Increase Perc" />
+    <column name="adp_lastsync_date" fieldName="AdpLastsyncDate" label="Adp Lastsync Date" format="g" />
+    <column name="created_date" fieldName="CreatedDate" label="Created Date" format="g" />
+    <column fieldName="EmployeeFullName" type="varchar(62)" dataType="String" label="Employee Full Name">
+      <formula>Employee.last_name+', '+Employee.first_name</formula>
+    </column>
+  </columns>
+</dataModel>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="SiteCommunicationCategory" alias="SiteCommunicationCategory" created="2017-07-18T10:20:59" modified="2017-07-24T16:07:30" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="siteCommunicationCategoryId" fieldName="SiteCommunicationCategoryID" label="site Communication Category Id" />
+    <column name="categoryDescription" fieldName="CategoryDescription" label="category Description" />
+    <column name="createdBy" fieldName="CreatedBy" label="created By" />
+    <column name="type" fieldName="Type" label="Type" />
+  </columns>
+</dataModel>

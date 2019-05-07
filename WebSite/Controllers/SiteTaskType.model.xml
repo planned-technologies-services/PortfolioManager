@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="SiteTaskType" alias="SiteTaskType" created="2017-07-18T10:22:12" modified="2017-07-18T10:22:18" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="siteTaskTypeId" fieldName="SiteTaskTypeID" label="site Task Type Id" />
+    <column name="taskTypeDescription" fieldName="TaskTypeDescription" label="task Type Description" />
+    <column name="createdBy" fieldName="CreatedBy" label="created By" />
+  </columns>
+</dataModel>

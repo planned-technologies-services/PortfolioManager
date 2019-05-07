@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="SiteCommunication" alias="SiteCommunication" created="2017-07-18T10:17:33" modified="2017-07-27T10:23:04" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="siteCommunicationType" parentTableSchema="dbo" parentTableName="SiteCommunicationType" x="389" y="20">
+      <foreignKeyColumn columnName="siteCommunicationTypeId" parentColumnName="siteCommunicationTypeId" />
+    </foreignKey>
+    <foreignKey id="siteCommunicationCategory" parentTableSchema="dbo" parentTableName="SiteCommunicationCategory" x="389" y="182">
+      <foreignKeyColumn columnName="siteCommunicationCategoryId" parentColumnName="siteCommunicationCategoryId" />
+    </foreignKey>
+    <foreignKey id="siteContact" parentTableSchema="dbo" parentTableName="SiteContact" x="389" y="358">
+      <foreignKeyColumn columnName="siteContactId" parentColumnName="siteContactId" />
+    </foreignKey>
+    <foreignKey id="siteContactcontactType" parentTableSchema="dbo" parentTableName="SiteContactType" baseForeignKey="siteContact" x="697" y="404">
+      <foreignKeyColumn columnName="contactTypeId" parentColumnName="contactTypeId" />
+    </foreignKey>
+    <foreignKey id="site" parentTableSchema="dbo" parentTableName="Site" x="389" y="565">
+      <foreignKeyColumn columnName="siteId" parentColumnName="siteid" />
+    </foreignKey>
+    <foreignKey id="siteContactEmail" parentTableSchema="dbo" parentTableName="SiteContactEmail" x="831" y="108">
+      <foreignKeyColumn columnName="siteContactEmailId" parentColumnName="siteContactEmailId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="siteCommunicationId" fieldName="SiteCommunicationID" label="site Communication Id" />
+    <column name="siteCommunicationTypeId" fieldName="SiteCommunicationTypeID" label="site Communication Type Id" aliasColumnName="CommunicationTypeDescription" aliasForeignKey="siteCommunicationType" />
+    <column name="CommunicationTypeDescription" fieldName="SiteCommunicationTypeDescription" label="site Communication Type Description" foreignKey="siteCommunicationType" />
+    <column name="siteCommunicationCategoryId" fieldName="SiteCommunicationCategoryID" label="site Communication Category Id" aliasColumnName="categoryDescription" aliasForeignKey="siteCommunicationCategory" />
+    <column name="categoryDescription" fieldName="SiteCommunicationCategorycategoryDescription" label="site Communication Categorycategory Description" foreignKey="siteCommunicationCategory" />
+    <column name="type" fieldName="SitecommunicationcategoryType" label="Sitecommunicationcategory Type" foreignKey="siteCommunicationCategory" />
+    <column name="siteContactId" fieldName="SiteContactID" label="site Contact Id" aliasColumnName="firstName" aliasForeignKey="siteContact" />
+    <column name="firstName" fieldName="SiteCommunicationContactfirstName" label="site Contactfirst Name" foreignKey="siteContact" />
+    <column name="lastName" fieldName="SiteCommunicationcontactLastname" label="Site Communicationcontact Lastname" foreignKey="siteContact" />
+    <column name="contactTypeDetail" fieldName="SiteContactcontactTypecontactTypeDetail" label="site Contactcontact Typecontact Type Detail" foreignKey="siteContactcontactType" />
+    <column name="siteId" fieldName="SiteID" label="site Id" aliasColumnName="jobno" aliasForeignKey="site" />
+    <column name="jobno" fieldName="Sitejobno" label="Sitejobno" foreignKey="site" />
+    <column name="site_name" fieldName="SiteCommunicationSiteName" label="Site Communication Site Name" foreignKey="site" />
+    <column name="messageDate" fieldName="MessageDate" label="message Date" format="g" />
+    <column name="createdDate" fieldName="CreatedDate" label="created Date" format="g" />
+    <column name="createdBy" fieldName="CreatedBy" label="created By" />
+    <column name="followUpTo" fieldName="FollowUpTo" label="Follow Up To" />
+    <column name="priority" fieldName="Priority" label="Priority" />
+    <column name="status" fieldName="Status" label="Status" />
+    <column name="subject" fieldName="Subject" label="Subject" />
+    <column name="details" fieldName="Details" label="Details" />
+    <column name="dueDate" fieldName="DueDate" label="Due Date" format="g" />
+    <column name="username" fieldName="Username" label="Username" />
+    <column name="siteContactEmailId" fieldName="SiteCommunicationSiteContactEmailId" label="Site Communication Site Contact Email Id" aliasColumnName="email" aliasForeignKey="siteContactEmail" />
+    <column name="email" fieldName="SitecontactemailEmail" label="Sitecontactemail Email" foreignKey="siteContactEmail" />
+  </columns>
+</dataModel>

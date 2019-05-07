@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="VCollectCustomerInvoiceAll" conflictDetection="overwriteChanges" label="V Collect Customer Invoice All" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"vCollectCustomerInvoiceAll"."customerid" "Customerid"
+	,"vCollectCustomerInvoiceAll"."comp" "Comp"
+	,"vCollectCustomerInvoiceAll"."ARDivisionNo" "ArdivisionNo"
+	,"vCollectCustomerInvoiceAll"."CustomerNo" "CustomerNo"
+	,"vCollectCustomerInvoiceAll"."CustomerName" "CustomerName"
+	,"vCollectCustomerInvoiceAll"."InvoiceTotal" "InvoiceTotal"
+	,"vCollectCustomerInvoiceAll"."Balance" "Balance"
+	,"vCollectCustomerInvoiceAll"."InvoiceNo" "InvoiceNo"
+	,"vCollectCustomerInvoiceAll"."invoiceheader" "Invoiceheader"
+	,"vCollectCustomerInvoiceAll"."DateLastPayment" "DateLastPayment"
+	,"vCollectCustomerInvoiceAll"."City" "City"
+	,"vCollectCustomerInvoiceAll"."ZipCode" "ZipCode"
+	,"vCollectCustomerInvoiceAll"."State" "State"
+	,"vCollectCustomerInvoiceAll"."ContactCode" "ContactCode"
+	,"vCollectCustomerInvoiceAll"."DateEstablished" "DateEstablished"
+	,"vCollectCustomerInvoiceAll"."CustomerStatus" "CustomerStatus"
+	,"vCollectCustomerInvoiceAll"."invoicedate" "Invoicedate"
+	,"vCollectCustomerInvoiceAll"."invoiceduedate" "Invoiceduedate"
+	,"vCollectCustomerInvoiceAll"."SalesPersonName" "SalesPersonName"
+	,"vCollectCustomerInvoiceAll"."propertymgmt" "Propertymgmt"
+	,"vCollectCustomerInvoiceAll"."siteid" "Siteid"
+	,"Site"."site_name" "CollectSiteName"
+	,"vCollectCustomerInvoiceAll"."jobno" "Jobno"
+	,"vCollectCustomerInvoiceAll"."ccid" "Ccid"
+	,"vCollectCustomerInvoiceAll"."escalationlevel" "Escalationlevel"
+	,"vCollectCustomerInvoiceAll"."assigned_to" "AssignedTo"
+	,"vCollectCustomerInvoiceAll"."customertype_code" "CustomertypeCode"
+	,"vCollectCustomerInvoiceAll"."promise_date" "PromiseDate"
+	,"vCollectCustomerInvoiceAll"."dispute_code" "DisputeCode"
+	,"vCollectCustomerInvoiceAll"."disputed_amt" "DisputedAmt"
+	,"vCollectCustomerInvoiceAll"."lastactivitycompleted_date" "LastactivitycompletedDate"
+	,"vCollectCustomerInvoiceAll"."LastResult" "LastResult"
+	,"vCollectCustomerInvoiceAll"."comment" "Comment"
+	,"vCollectCustomerInvoiceAll"."cciid" "Cciid"
+	,"vCollectCustomerInvoiceAll"."escalation_date" "EscalationDate"
+	,"vCollectCustomerInvoiceAll"."dispute_desc" "DisputeDesc"
+from "dbo"."vCollectCustomerInvoiceAll" "vCollectCustomerInvoiceAll"
+	left join "dbo"."Site" "Site" on "vCollectCustomerInvoiceAll"."siteid" = "Site"."siteid"
+]]></text>
+    </command>
+    <command id="siteidIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Siteid" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Customerid" type="String" allowNulls="false" label="Customerid" readOnly="true" length="25" showInSummary="true" />
+    <field name="Comp" type="String" allowNulls="false" label="Comp" length="3" showInSummary="true" />
+    <field name="ArdivisionNo" type="String" allowNulls="false" label="AR Division No" length="2" showInSummary="true" />
+    <field name="CustomerNo" type="String" allowNulls="false" label="Customer No" length="20" showInSummary="true" />
+    <field name="CustomerName" type="String" label="Customer Name" length="30" showInSummary="true" />
+    <field name="InvoiceTotal" type="Decimal" label="Invoice Total" dataFormatString="c" />
+    <field name="Balance" type="Decimal" label="Balance" dataFormatString="c" />
+    <field name="InvoiceNo" type="String" allowNulls="false" label="Invoice No" length="7" />
+    <field name="Invoiceheader" type="String" label="Invoiceheader" length="30" />
+    <field name="DateLastPayment" type="DateTime" label="Date Last Payment" readOnly="true" dataFormatString="d" />
+    <field name="City" type="String" label="City" length="20" />
+    <field name="ZipCode" type="String" label="Zip Code" length="10" />
+    <field name="State" type="String" label="State" length="2" />
+    <field name="ContactCode" type="String" label="Contact Code" length="10" />
+    <field name="DateEstablished" type="DateTime" label="Date Established" readOnly="true" />
+    <field name="CustomerStatus" type="String" label="Customer Status" length="1" />
+    <field name="Invoicedate" type="DateTime" label="Invoice Date" readOnly="true" dataFormatString="d" />
+    <field name="Invoiceduedate" type="DateTime" label="Invoice due date" readOnly="true" dataFormatString="d" />
+    <field name="SalesPersonName" type="String" label="Sales Person Name" readOnly="true" length="50" />
+    <field name="Propertymgmt" type="String" label="Propertymgmt" length="30" />
+    <field name="Siteid" type="Int32" label="Siteid" readOnly="true">
+      <items style="Lookup" dataController="Site" dataValueField="Siteid" dataTextField="SiteName" />
+    </field>
+    <field name="CollectSiteName" type="String" readOnly="true" label="Collect Site Name" length="30" />
+    <field name="Jobno" type="String" label="Jobno" length="7" />
+    <field name="Ccid" type="Int32" label="Ccid" />
+    <field name="Escalationlevel" type="String" label="Escalationlevel" length="1" />
+    <field name="AssignedTo" type="String" label="Assigned To" length="20" />
+    <field name="CustomertypeCode" type="String" label="Customertype Code" length="1" />
+    <field name="PromiseDate" type="DateTime" dataFormatString="d" label="Promise Date" />
+    <field name="DisputeCode" type="String" label="Dispute Code" length="20" />
+    <field name="DisputedAmt" type="Decimal" label="Disputed Amt" />
+    <field name="LastactivitycompletedDate" type="DateTime" dataFormatString="d" label="Lastactivitycompleted Date" readOnly="true" />
+    <field name="LastResult" type="String" allowQBE="false" allowSorting="false" label="Last Result" readOnly="true" />
+    <field name="Comment" type="String" allowQBE="false" allowSorting="false" label="Comment" />
+    <field name="Cciid" type="Int32" label="Cciid" />
+    <field name="EscalationDate" type="DateTime" dataFormatString="d" label="Escalation Date" />
+    <field name="DisputeDesc" type="String" label="Dispute Desc" length="40" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Outstanding Invoices">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Invoicedate" columns="10" />
+        <dataField fieldName="Customerid" columns="25" hidden="true" />
+        <dataField fieldName="Comp" columns="3" />
+        <dataField fieldName="CustomerNo" columns="20" hidden="true" />
+        <dataField fieldName="CustomerName" columns="30" />
+        <dataField fieldName="InvoiceTotal" columns="15" />
+        <dataField fieldName="Balance" columns="15" />
+        <dataField fieldName="InvoiceNo" columns="7" />
+        <dataField fieldName="Invoiceheader" columns="30" />
+        <dataField fieldName="DateLastPayment" columns="10" />
+        <dataField fieldName="DisputeDesc" columns="40" />
+        <dataField fieldName="DisputedAmt" columns="15" />
+        <dataField fieldName="PromiseDate" columns="20" />
+        <dataField fieldName="EscalationDate" columns="20" />
+        <dataField fieldName="SalesPersonName" columns="50" />
+        <dataField fieldName="ContactCode" columns="10" />
+        <dataField fieldName="DateEstablished" columns="10" />
+        <dataField fieldName="CustomerStatus" columns="1" />
+        <dataField fieldName="Invoiceduedate" columns="10" />
+        <dataField fieldName="Propertymgmt" columns="30" />
+        <dataField fieldName="Siteid" aliasFieldName="CollectSiteName" />
+        <dataField fieldName="Jobno" columns="7" hidden="true" />
+        <dataField fieldName="Escalationlevel" columns="1" hidden="true" />
+        <dataField fieldName="AssignedTo" columns="20" />
+        <dataField fieldName="LastactivitycompletedDate" columns="20" />
+        <dataField fieldName="LastResult" rows="5" />
+        <dataField fieldName="Comment" rows="5" />
+        <dataField fieldName="Cciid" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review V Collect Customer Invoice All">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="V Collect Customer Invoice All" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Customerid" columns="25" />
+            <dataField fieldName="Comp" columns="3" />
+            <dataField fieldName="ArdivisionNo" columns="2" />
+            <dataField fieldName="CustomerNo" columns="20" />
+            <dataField fieldName="CustomerName" columns="30" />
+            <dataField fieldName="InvoiceTotal" columns="15" />
+            <dataField fieldName="Balance" columns="15" />
+            <dataField fieldName="InvoiceNo" columns="7" />
+            <dataField fieldName="Invoiceheader" columns="30" />
+            <dataField fieldName="DateLastPayment" columns="10" />
+            <dataField fieldName="City" columns="20" />
+            <dataField fieldName="ZipCode" columns="10" />
+            <dataField fieldName="State" columns="2" />
+            <dataField fieldName="ContactCode" columns="10" />
+            <dataField fieldName="DateEstablished" columns="10" />
+            <dataField fieldName="CustomerStatus" columns="1" />
+            <dataField fieldName="Invoicedate" columns="10" />
+            <dataField fieldName="Invoiceduedate" columns="10" />
+            <dataField fieldName="SalesPersonName" columns="50" />
+            <dataField fieldName="Propertymgmt" columns="30" />
+            <dataField fieldName="Siteid" aliasFieldName="CollectSiteName" />
+            <dataField fieldName="Jobno" columns="7" />
+            <dataField fieldName="Ccid" columns="15" />
+            <dataField fieldName="Escalationlevel" columns="1" />
+            <dataField fieldName="AssignedTo" columns="20" />
+            <dataField fieldName="CustomertypeCode" columns="1" />
+            <dataField fieldName="PromiseDate" columns="20" />
+            <dataField fieldName="DisputeCode" columns="20" />
+            <dataField fieldName="DisputedAmt" columns="15" />
+            <dataField fieldName="LastactivitycompletedDate" columns="20" />
+            <dataField fieldName="LastResult" rows="5" />
+            <dataField fieldName="Comment" rows="5" />
+            <dataField fieldName="Cciid" columns="15" />
+            <dataField fieldName="EscalationDate" columns="20" />
+            <dataField fieldName="DisputeDesc" columns="40" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a6" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true" />
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true" />
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+</dataController>

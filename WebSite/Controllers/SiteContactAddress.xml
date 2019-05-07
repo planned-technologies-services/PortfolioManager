@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="SiteContactAddress" conflictDetection="overwriteChanges" label="Site Contact Address" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"SiteContactAddress"."siteContactAddressId" "SiteContactAddressID"
+	,"SiteContactAddress"."siteContactId" "SiteContactID"
+	,"siteContact"."firstName" "SiteContactfirstName"
+	,"siteContact"."lastName" "SitecontactLastname"
+	,"siteContactsite"."jobno" "SiteContactsitejobno"
+	,"siteContactsite"."site_name" "SitecontactsiteSiteName"
+	,"siteContactcontactType"."contactTypeDetail" "SiteContactcontactTypecontactTypeDetail"
+	,"SiteContactAddress"."addressTypeId" "AddressTypeID"
+	,"addressType"."addressTypeDetail" "AddressTypeaddressTypeDetail"
+	,"SiteContactAddress"."address1" "Address1"
+	,"SiteContactAddress"."address2" "Address2"
+	,"SiteContactAddress"."zipcode" "Zipcode"
+	,"SiteContactAddress"."city" "City"
+	,"SiteContactAddress"."state" "State"
+	,"SiteContactAddress"."createdDate" "CreatedDate"
+	,"SiteContactAddress"."createdBy" "CreatedBy"
+from "dbo"."SiteContactAddress" "SiteContactAddress"
+	left join "dbo"."SiteContact" "siteContact" on "SiteContactAddress"."siteContactId" = "siteContact"."siteContactId"
+	left join "dbo"."Site" "siteContactsite" on "siteContact"."siteId" = "siteContactsite"."siteid"
+	left join "dbo"."SiteContactType" "siteContactcontactType" on "siteContact"."contactTypeId" = "siteContactcontactType"."contactTypeId"
+	left join "dbo"."SiteContactAddressType" "addressType" on "SiteContactAddress"."addressTypeId" = "addressType"."siteContactAddressTypeId"
+]]></text>
+    </command>
+    <command id="siteContactAddressIdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="SiteContactAddressID" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="SiteContactAddressID" type="Int32" allowNulls="false" isPrimaryKey="true" label="site Contact Address Id" readOnly="true" />
+    <field name="SiteContactID" type="Int32" label="site Contact Id" showInSummary="true">
+      <items style="Lookup" dataController="SiteContact" newDataView="createForm1" dataValueField="SiteContactID" dataTextField="FirstName" copy="SitecontactLastname=LastName, SiteContactsitejobno=Sitejobno, SitecontactsiteSiteName=SiteContactSiteName, SiteContactcontactTypecontactTypeDetail=ContactTypecontactTypeDetail" />
+    </field>
+    <field name="SiteContactfirstName" type="String" readOnly="true" label="First Name" length="50" />
+    <field name="SitecontactLastname" type="String" readOnly="true" label="Last Name" length="50" />
+    <field name="SiteContactsitejobno" type="String" readOnly="true" label="Job No" length="7" />
+    <field name="SitecontactsiteSiteName" type="String" readOnly="true" label="Site Name" length="30" />
+    <field name="SiteContactcontactTypecontactTypeDetail" type="String" readOnly="true" label="Contact Type" length="50" />
+    <field name="AddressTypeID" type="Int32" allowNulls="false" label="address Type Id" showInSummary="true">
+      <items style="RadioButtonList" dataController="SiteContactAddressType" newDataView="createForm1" dataValueField="SiteContactAddressTypeID" dataTextField="AddressTypeDetail" />
+    </field>
+    <field name="AddressTypeaddressTypeDetail" type="String" readOnly="true" label="Address Type" length="50" />
+    <field name="Address1" type="String" allowNulls="false" label="Address1" length="50" showInSummary="true" />
+    <field name="Address2" type="String" label="Address2" length="50" showInSummary="true" />
+    <field name="Zipcode" type="String" label="Zip Code" length="10" showInSummary="true" />
+    <field name="City" type="String" label="City" length="15" />
+    <field name="State" type="String" label="State" length="3" />
+    <field name="CreatedDate" type="DateTime" dataFormatString="g" default="(getdate())" label="created Date" />
+    <field name="CreatedBy" type="String" label="created By" length="50">
+      <items style="UserNameLookup" />
+    </field>
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Address">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="SiteContactID" aliasFieldName="SiteContactfirstName" />
+        <dataField fieldName="SitecontactLastname" columns="50" />
+        <dataField fieldName="SiteContactsitejobno" columns="7" />
+        <dataField fieldName="SitecontactsiteSiteName" columns="30" />
+        <dataField fieldName="SiteContactcontactTypecontactTypeDetail" columns="50" />
+        <dataField fieldName="AddressTypeID" aliasFieldName="AddressTypeaddressTypeDetail" columns="7" />
+        <dataField fieldName="Address1" columns="50" />
+        <dataField fieldName="Address2" columns="20" />
+        <dataField fieldName="Zipcode" columns="10" />
+        <dataField fieldName="City" columns="15" />
+        <dataField fieldName="State" columns="5" />
+        <dataField fieldName="CreatedDate" columns="20" />
+        <dataField fieldName="CreatedBy" columns="50" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Address">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Site Address" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="SiteContactID" aliasFieldName="SiteContactfirstName" />
+            <dataField fieldName="SitecontactLastname" columns="50" />
+            <dataField fieldName="SiteContactsitejobno" columns="7" />
+            <dataField fieldName="SitecontactsiteSiteName" columns="30" />
+            <dataField fieldName="SiteContactcontactTypecontactTypeDetail" columns="50" />
+            <dataField fieldName="AddressTypeID" aliasFieldName="AddressTypeaddressTypeDetail" />
+            <dataField fieldName="Address1" columns="50" />
+            <dataField fieldName="Address2" columns="50" />
+            <dataField fieldName="Zipcode" columns="10" />
+            <dataField fieldName="City" columns="15" />
+            <dataField fieldName="State" columns="3" />
+            <dataField fieldName="CreatedDate" columns="20" />
+            <dataField fieldName="CreatedBy" columns="50" textMode="Static" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Add Address">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="SiteContactID" aliasFieldName="SiteContactfirstName" />
+            <dataField fieldName="SitecontactLastname" columns="50" />
+            <dataField fieldName="SiteContactsitejobno" columns="7" />
+            <dataField fieldName="SitecontactsiteSiteName" columns="30" />
+            <dataField fieldName="SiteContactcontactTypecontactTypeDetail" columns="50" />
+            <dataField fieldName="Address1" columns="50" />
+            <dataField fieldName="Address2" columns="50" />
+            <dataField fieldName="Zipcode" columns="10" />
+            <dataField fieldName="City" columns="15" />
+            <dataField fieldName="State" columns="3" />
+            <dataField fieldName="AddressTypeID" aliasFieldName="AddressTypeaddressTypeDetail" />
+            <dataField fieldName="CreatedBy" columns="50" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="Delete" />
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="Delete" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r101" commandName="Insert" type="Sql" phase="Before"><![CDATA[SET @CreatedBy = @BusinessRules_UserName]]></rule>
+  </businessRules>
+</dataController>

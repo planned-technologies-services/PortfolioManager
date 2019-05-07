@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="EmployeeRateHistory" conflictDetection="overwriteChanges" label="Employee Rate History" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"EmployeeRateHistory"."employeeratehistoryid" "Employeeratehistoryid"
+	,"EmployeeRateHistory"."company_code" "CompanyCode"
+	,"EmployeeRateHistory"."employeeid" "Employeeid"
+	,"Employee"."first_name" "EmployeeFirstName"
+	,"Employee"."last_name" "EmployeeLastName"
+	,"Employee"."employment_status" "EmployeeEmploymentStatus"
+	,"EmployeeRateHistory"."filenumber" "Filenumber"
+	,"EmployeeRateHistory"."prev_payrate" "PrevPayrate"
+	,"EmployeeRateHistory"."new_payrate" "NewPayrate"
+	,"EmployeeRateHistory"."payrate_increase_amount" "PayrateIncreaseAmount"
+	,"EmployeeRateHistory"."payrate_increase_perc" "PayrateIncreasePerc"
+	,"EmployeeRateHistory"."payrate_increase_date" "PayrateIncreaseDate"
+from "dbo"."EmployeeRateHistory" "EmployeeRateHistory"
+	left join "dbo"."Employee" "Employee" on "EmployeeRateHistory"."employeeid" = "Employee"."employeeid"
+]]></text>
+    </command>
+    <command id="employeeratehistoryidIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Employeeratehistoryid" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Employeeratehistoryid" type="Int32" allowNulls="false" isPrimaryKey="true" label="Employeeratehistoryid" readOnly="true" />
+    <field name="CompanyCode" type="String" label="Company Code" length="3" showInSummary="true" />
+    <field name="Employeeid" type="Int32" label="Employeeid" showInSummary="true">
+      <items style="Lookup" dataController="Employee" dataValueField="Employeeid" dataTextField="FirstName" copy="EmployeeLastName=LastName, EmployeeEmploymentStatus=EmploymentStatus" />
+    </field>
+    <field name="EmployeeFirstName" type="String" readOnly="true" label="Employee First Name" length="30" />
+    <field name="EmployeeLastName" type="String" readOnly="true" label="Employee Last Name" length="30" />
+    <field name="EmployeeEmploymentStatus" type="String" readOnly="true" label="Employee Employment Status" length="1" />
+    <field name="Filenumber" type="String" label="Filenumber" length="7" showInSummary="true" />
+    <field name="PrevPayrate" type="Decimal" label="Prev Payrate" showInSummary="true" dataFormatString="C2" />
+    <field name="NewPayrate" type="Decimal" label="New Payrate" showInSummary="true" dataFormatString="C2" />
+    <field name="PayrateIncreaseAmount" type="Decimal" label="Payrate Increase Amount" dataFormatString="C2" />
+    <field name="PayrateIncreasePerc" type="Decimal" label="Payrate Increase Perc" dataFormatString="n" />
+    <field name="PayrateIncreaseDate" type="DateTime" dataFormatString="d" label="Payrate Increase Date" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Employee Rate History" sortExpression="PayrateIncreaseDate desc">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="PayrateIncreaseDate" columns="20" />
+        <dataField fieldName="Employeeid" aliasFieldName="EmployeeFirstName" />
+        <dataField fieldName="EmployeeLastName" columns="30" />
+        <dataField fieldName="EmployeeEmploymentStatus" columns="1" />
+        <dataField fieldName="Filenumber" columns="7" />
+        <dataField fieldName="NewPayrate" columns="15" />
+        <dataField fieldName="PrevPayrate" columns="15" />
+        <dataField fieldName="PayrateIncreaseAmount" columns="15" />
+        <dataField fieldName="PayrateIncreasePerc" columns="15" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Employee Rate History">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Employee Rate History" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="CompanyCode" columns="3" />
+            <dataField fieldName="Employeeid" aliasFieldName="EmployeeFirstName" />
+            <dataField fieldName="EmployeeLastName" columns="30" />
+            <dataField fieldName="EmployeeEmploymentStatus" columns="1" />
+            <dataField fieldName="Filenumber" columns="7" />
+            <dataField fieldName="PrevPayrate" columns="15" />
+            <dataField fieldName="NewPayrate" columns="15" />
+            <dataField fieldName="PayrateIncreaseAmount" columns="15" />
+            <dataField fieldName="PayrateIncreasePerc" columns="15" />
+            <dataField fieldName="PayrateIncreaseDate" columns="20" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a6" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a5" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+</dataController>

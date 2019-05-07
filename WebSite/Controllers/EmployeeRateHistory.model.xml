@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="EmployeeRateHistory" alias="EmployeeRateHistory" created="2017-07-19T16:10:35" modified="2017-07-19T16:12:06" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Employee" parentTableSchema="dbo" parentTableName="Employee" x="365" y="20">
+      <foreignKeyColumn columnName="employeeid" parentColumnName="employeeid" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="employeeratehistoryid" fieldName="Employeeratehistoryid" label="Employeeratehistoryid" />
+    <column name="company_code" fieldName="CompanyCode" label="Company Code" />
+    <column name="employeeid" fieldName="Employeeid" label="Employeeid" aliasColumnName="first_name" aliasForeignKey="Employee" />
+    <column name="first_name" fieldName="EmployeeFirstName" label="Employee First Name" foreignKey="Employee" />
+    <column name="last_name" fieldName="EmployeeLastName" label="Employee Last Name" foreignKey="Employee" />
+    <column name="employment_status" fieldName="EmployeeEmploymentStatus" label="Employee Employment Status" foreignKey="Employee" />
+    <column name="filenumber" fieldName="Filenumber" label="Filenumber" />
+    <column name="prev_payrate" fieldName="PrevPayrate" label="Prev Payrate" />
+    <column name="new_payrate" fieldName="NewPayrate" label="New Payrate" />
+    <column name="payrate_increase_amount" fieldName="PayrateIncreaseAmount" label="Payrate Increase Amount" />
+    <column name="payrate_increase_perc" fieldName="PayrateIncreasePerc" label="Payrate Increase Perc" />
+    <column name="payrate_increase_date" fieldName="PayrateIncreaseDate" label="Payrate Increase Date" format="g" />
+  </columns>
+</dataModel>

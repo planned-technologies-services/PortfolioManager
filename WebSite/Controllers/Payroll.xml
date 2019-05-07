@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Payroll" conflictDetection="overwriteChanges" label="Payroll" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Payroll"."payrollid" "Payrollid"
+	,"Payroll"."payrollperiodid" "Payrollperiodid"
+	,"PayrollPeriod"."start_date" "PayrollperiodStartDate"
+	,"PayrollPeriod"."end_date" "PayrollperiodEndDate"
+	,"PayrollPeriod"."check_date" "PayrollperiodCheckDate"
+	,"Payroll"."site_code" "SiteCode"
+	,"Payroll"."jobno" "Jobno"
+	,"Payroll"."siteid" "Siteid"
+	,"Payroll"."site_name" "SiteName"
+	,"Payroll"."managerid" "Managerid"
+	,"Payroll"."manager_name" "ManagerName"
+	,"Payroll"."budget_dollars" "BudgetDollars"
+	,"Payroll"."budget_hours" "BudgetHours"
+	,"Payroll"."budget_salary_hours" "BudgetSalaryHours"
+	,"Payroll"."total_actual_dollars" "TotalActualDollars"
+	,"Payroll"."total_actual_hours" "TotalActualHours"
+	,"Payroll"."actual_po_dollars" "ActualPoDollars"
+	,"Payroll"."actual_po_hours" "ActualPoHours"
+	,"Payroll"."bill_po_hours" "BillPoHours"
+	,"Payroll"."bill_po_dollars" "BillPoDollars"
+	,"Payroll"."var_hours" "VarHours"
+	,"Payroll"."var_dollars" "VarDollars"
+	,"Payroll"."var_po_hours" "VarPoHours"
+	,"Payroll"."var_po_dollars" "VarPoDollars"
+	,"Payroll"."note1" "Note1"
+	,"Payroll"."note2" "Note2"
+	,"Payroll"."note3" "Note3"
+	,"Payroll"."note4" "Note4"
+	,"Payroll"."note5" "Note5"
+	,"Payroll"."note6" "Note6"
+	,"Payroll"."note1_updatedby" "Note1Updatedby"
+	,"Payroll"."note2_updatedby" "Note2Updatedby"
+	,"Payroll"."note3_updatedby" "Note3Updatedby"
+	,"Payroll"."note1_isApproved" "Note1Isapproved"
+	,"Payroll"."note2_isApproved" "Note2Isapproved"
+	,"Payroll"."note3_isApproved" "Note3Isapproved"
+	,"Payroll"."state" "State"
+	,"Payroll"."isReviewed" "IsReviewed"
+	,"Payroll"."isReviewed2" "IsReviewed2"
+	,"Payroll"."isReviewed3" "IsReviewed3"
+	,"Payroll"."propertymanagementid" "Propertymanagementid"
+	,"Payroll"."propertymanagement_name" "PropertymanagementName"
+	,"Payroll"."isReviewed_updatedby" "IsreviewedUpdatedby"
+	,"Payroll"."isReviewed2_updatedby" "Isreviewed2Updatedby"
+	,"Payroll"."isReviewed3_updatedby" "Isreviewed3Updatedby"
+from "dbo"."Payroll" "Payroll"
+	left join "dbo"."PayrollPeriod" "PayrollPeriod" on "Payroll"."payrollperiodid" = "PayrollPeriod"."payrollperiodid"
+]]></text>
+    </command>
+    <command id="payrollidIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Payrollid" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Payrollid" type="Int32" allowNulls="false" isPrimaryKey="true" label="Payrollid" readOnly="true" />
+    <field name="Payrollperiodid" type="Int32" label="Payrollperiodid" showInSummary="true" />
+    <field name="PayrollperiodStartDate" type="DateTime" readOnly="true" dataFormatString="d" label="Payrollperiod Start Date" />
+    <field name="PayrollperiodEndDate" type="DateTime" readOnly="true" dataFormatString="d" label="End Date" />
+    <field name="PayrollperiodCheckDate" type="DateTime" readOnly="true" dataFormatString="d" label="Payrollperiod Check Date" />
+    <field name="SiteCode" type="String" label="Company" length="3" showInSummary="true" />
+    <field name="Jobno" type="String" label="Dept No" length="7" showInSummary="true" />
+    <field name="Siteid" type="Int32" label="Siteid" showInSummary="true" />
+    <field name="SiteName" type="String" label="Site Name" length="50" showInSummary="true" />
+    <field name="Managerid" type="Int32" label="Managerid" />
+    <field name="ManagerName" type="String" label="Manager Name" length="50" />
+    <field name="BudgetDollars" type="Decimal" label="Budget Dollars" />
+    <field name="BudgetHours" type="Decimal" label="Budget Hours" />
+    <field name="BudgetSalaryHours" type="Decimal" dataFormatString="c" label="Budget Salary Hours" />
+    <field name="TotalActualDollars" type="Decimal" label="Actual Dollars" dataFormatString="C2" />
+    <field name="TotalActualHours" type="Decimal" label="Actual Hours" />
+    <field name="ActualPoDollars" type="Decimal" label="Actual WO Dollars" dataFormatString="C2" />
+    <field name="ActualPoHours" type="Decimal" label="Actual WO Hours" />
+    <field name="BillPoHours" type="Decimal" label="Bill WO Hours" />
+    <field name="BillPoDollars" type="Decimal" label="Bill WO Dollars" dataFormatString="C2" />
+    <field name="VarHours" type="Decimal" label="Var Hours" />
+    <field name="VarDollars" type="Decimal" label="Var Dollars" dataFormatString="C2" />
+    <field name="VarPoHours" type="Decimal" label="Var WO Hours" />
+    <field name="VarPoDollars" type="Decimal" label="Var WO Dollars" dataFormatString="C2" />
+    <field name="Note1" type="String" allowQBE="false" allowSorting="false" label="Note (Payroll)" />
+    <field name="Note2" type="String" allowQBE="false" allowSorting="false" label="Note (Ops)" />
+    <field name="Note3" type="String" allowQBE="false" allowSorting="false" label="Note3" />
+    <field name="Note4" type="String" label="Note4" length="80" />
+    <field name="Note5" type="String" label="Note5" length="80" />
+    <field name="Note6" type="String" label="Note6" length="80" />
+    <field name="Note1Updatedby" type="String" label="Note1 Updatedby" length="50" />
+    <field name="Note2Updatedby" type="String" label="Note2 Updatedby" length="50" />
+    <field name="Note3Updatedby" type="String" label="Note3 Updatedby" length="50" />
+    <field name="Note1Isapproved" type="String" label="note1 is Approved" length="1" />
+    <field name="Note2Isapproved" type="String" label="note2 is Approved" length="1" />
+    <field name="Note3Isapproved" type="String" label="note3 is Approved" length="1" />
+    <field name="State" type="String" label="State" length="2" />
+    <field name="IsReviewed" type="String" label="is Reviewed" length="1" />
+    <field name="IsReviewed2" type="String" label="is Reviewed2" length="1" />
+    <field name="IsReviewed3" type="String" label="is Reviewed3" length="1" />
+    <field name="Propertymanagementid" type="Int32" label="Propertymanagementid" />
+    <field name="PropertymanagementName" type="String" label="Property Management" length="50" />
+    <field name="IsreviewedUpdatedby" type="String" label="is Reviewed updatedby" length="50" />
+    <field name="Isreviewed2Updatedby" type="String" label="is Reviewed2 updatedby" length="50" />
+    <field name="Isreviewed3Updatedby" type="String" label="is Reviewed3 updatedby" length="50" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Payroll" sortExpression="PayrollperiodEndDate desc">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="PayrollperiodEndDate" columns="10" />
+        <dataField fieldName="SiteCode" columns="7" />
+        <dataField fieldName="Jobno" columns="7" />
+        <dataField fieldName="SiteName" columns="35" hidden="true" />
+        <dataField fieldName="ManagerName" columns="20" />
+        <dataField fieldName="State" columns="5" />
+        <dataField fieldName="TotalActualHours" columns="15" />
+        <dataField fieldName="BudgetHours" columns="15" />
+        <dataField fieldName="VarHours" columns="15" />
+        <dataField fieldName="TotalActualDollars" columns="15" />
+        <dataField fieldName="BudgetDollars" columns="15" />
+        <dataField fieldName="VarDollars" columns="15" />
+        <dataField fieldName="ActualPoHours" columns="15" />
+        <dataField fieldName="ActualPoDollars" columns="15" />
+        <dataField fieldName="VarPoHours" columns="15" />
+        <dataField fieldName="VarPoDollars" columns="15" />
+        <dataField fieldName="BillPoHours" columns="15" />
+        <dataField fieldName="BillPoDollars" columns="15" />
+        <dataField fieldName="Note1" rows="5" />
+        <dataField fieldName="Note2" rows="5" />
+        <dataField fieldName="PropertymanagementName" columns="50" />
+        <dataField fieldName="Siteid" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Payroll">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Payroll" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="PayrollperiodEndDate" columns="10" />
+            <dataField fieldName="SiteCode" columns="5" />
+            <dataField fieldName="Jobno" columns="7" />
+            <dataField fieldName="SiteName" columns="35" hidden="true" />
+            <dataField fieldName="ManagerName" columns="20" />
+            <dataField fieldName="State" columns="5" />
+            <dataField fieldName="TotalActualHours" columns="15" />
+            <dataField fieldName="BudgetHours" columns="15" />
+            <dataField fieldName="VarHours" columns="15" />
+            <dataField fieldName="TotalActualDollars" columns="15" />
+            <dataField fieldName="BudgetDollars" columns="15" />
+            <dataField fieldName="VarDollars" columns="15" />
+            <dataField fieldName="ActualPoHours" columns="15" />
+            <dataField fieldName="ActualPoDollars" columns="15" />
+            <dataField fieldName="VarPoHours" columns="15" />
+            <dataField fieldName="VarPoDollars" columns="15" />
+            <dataField fieldName="BillPoHours" columns="15" />
+            <dataField fieldName="BillPoDollars" columns="15" />
+            <dataField fieldName="Note1" rows="5" />
+            <dataField fieldName="Note2" rows="5" />
+            <dataField fieldName="PropertymanagementName" columns="50" />
+            <dataField fieldName="Siteid" columns="15" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a6" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a5" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+</dataController>

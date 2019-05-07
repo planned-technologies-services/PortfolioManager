@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="SiteBreakRule" alias="SiteBreakRule" created="2017-08-01T15:13:26" modified="2017-08-01T15:14:11" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="sitebreakruleid" fieldName="Sitebreakruleid" label="Sitebreakruleid" />
+    <column name="breakrule_type" fieldName="BreakruleType" label="Breakrule Type" />
+    <column name="breakrule_desc" fieldName="BreakruleDesc" label="Breakrule Desc" />
+    <column name="breakrule_minute_factor" fieldName="BreakruleMinuteFactor" label="Breakrule Minute Factor" />
+    <column name="breakule_min_work_minutes" fieldName="BreakuleMinWorkMinutes" label="Breakule Min Work Minutes" />
+    <column name="breakrule_comment" fieldName="BreakruleComment" label="Breakrule Comment" />
+    <column name="active" fieldName="Active" label="Active" />
+    <column name="created_date" fieldName="CreatedDate" label="Created Date" format="g" />
+    <column name="created_by" fieldName="CreatedBy" label="Created By" />
+    <column name="updated_date" fieldName="UpdatedDate" label="Updated Date" format="g" />
+    <column name="updated_by" fieldName="UpdatedBy" label="Updated By" />
+  </columns>
+</dataModel>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Form_HR_WorkersComp" alias="Form_HR_WorkersComp" created="2017-07-25T12:24:36" modified="2017-07-25T12:26:27" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="site" parentTableSchema="dbo" parentTableName="Site" x="470" y="20">
+      <foreignKeyColumn columnName="siteid" parentColumnName="siteid" />
+    </foreignKey>
+    <foreignKey id="employee" parentTableSchema="dbo" parentTableName="Employee" x="470" y="181">
+      <foreignKeyColumn columnName="employeeid" parentColumnName="employeeid" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="form_hr_workerscompid" fieldName="FormHrWorkerscompid" label="Form Hr Workerscompid" />
+    <column name="form_queueid" fieldName="FormQueueid" label="Form Queueid" />
+    <column name="status" fieldName="Status" label="Status" />
+    <column name="claim_id" fieldName="ClaimID" label="Claim Id" />
+    <column name="company_code" fieldName="CompanyCode" label="Company Code" />
+    <column name="report_type" fieldName="ReportType" label="Report Type" />
+    <column name="siteid" fieldName="Siteid" label="Siteid" aliasColumnName="jobno" aliasForeignKey="site" />
+    <column name="jobno" fieldName="Sitejobno" label="Sitejobno" foreignKey="site" />
+    <column name="site_name" fieldName="WorkersCompSiteSiteName" label="Workers Comp Site Name" foreignKey="site" />
+    <column name="jobno" fieldName="Jobno" label="Jobno" />
+    <column name="site_name" fieldName="SiteName" label="Site Name" />
+    <column name="site_state" fieldName="SiteState" label="Site State" />
+    <column name="other_site_name" fieldName="OtherSiteName" label="Other Site Name" />
+    <column name="incident_date" fieldName="IncidentDate" label="Incident Date" format="g" />
+    <column name="report_submitted_by" fieldName="ReportSubmittedBy" label="Report Submitted By" />
+    <column name="report_submitted_date" fieldName="ReportSubmittedDate" label="Report Submitted Date" format="g" />
+    <column name="work_schedule_desc" fieldName="WorkScheduleDesc" label="Work Schedule Desc" />
+    <column name="employeeid" fieldName="Employeeid" label="Employeeid" aliasColumnName="employment_status" aliasForeignKey="employee" />
+    <column name="employment_status" fieldName="EmployeeEmploymentStatus" label="Employee Employment Status" foreignKey="employee" />
+    <column name="fileno" fieldName="Fileno" label="Fileno" />
+    <column name="employee_name" fieldName="EmployeeName" label="Employee Name" />
+    <column name="first_name" fieldName="FirstName" label="First Name" />
+    <column name="last_name" fieldName="LastName" label="Last Name" />
+    <column name="address1" fieldName="Address1" label="Address1" />
+    <column name="address2" fieldName="Address2" label="Address2" />
+    <column name="city" fieldName="City" label="City" />
+    <column name="state" fieldName="State" label="State" />
+    <column name="zipcode" fieldName="Zipcode" label="Zipcode" />
+    <column name="phone_home" fieldName="PhoneHome" label="Phone Home" />
+    <column name="phone_mobile" fieldName="PhoneMobile" label="Phone Mobile" />
+    <column name="emailaddress" fieldName="Emailaddress" label="Emailaddress" />
+    <column name="federal_id" fieldName="FederalID" label="Federal Id" />
+    <column name="birthdate" fieldName="Birthdate" label="Birthdate" format="g" />
+    <column name="employment_status" fieldName="EmploymentStatus" label="Employment Status" />
+    <column name="position" fieldName="Position" label="Position" />
+    <column name="injury_date" fieldName="InjuryDate" label="Injury Date" format="g" />
+    <column name="injury_time" fieldName="InjuryTime" label="Injury Time" />
+    <column name="accident_cause_desc" fieldName="AccidentCauseDesc" label="Accident Cause Desc" />
+    <column name="injury_nature_desc" fieldName="InjuryNatureDesc" label="Injury Nature Desc" />
+    <column name="body_part_desc" fieldName="BodyPartDesc" label="Body Part Desc" />
+    <column name="body_side_desc" fieldName="BodySideDesc" label="Body Side Desc" />
+    <column name="work_starttime" fieldName="WorkStarttime" label="Work Starttime" />
+    <column name="employer_notified_date" fieldName="EmployerNotifiedDate" label="Employer Notified Date" format="g" />
+    <column name="lastworked_date" fieldName="LastworkedDate" label="Lastworked Date" format="g" />
+    <column name="hours_worked_per_day" fieldName="HoursWorkedPerDay" label="Hours Worked Per Day" />
+    <column name="days_worked_per_week" fieldName="DaysWorkedPerWeek" label="Days Worked Per Week" />
+    <column name="expectedreturn_date" fieldName="ExpectedreturnDate" label="Expectedreturn Date" format="g" />
+    <column name="return_date" fieldName="ReturnDate" label="Return Date" format="g" />
+    <column name="fatal_date" fieldName="FatalDate" label="Fatal Date" format="g" />
+    <column name="isemployeelosingworktime" fieldName="Isemployeelosingworktime" label="Isemployeelosingworktime" />
+    <column name="disability_start_date" fieldName="DisabilityStartDate" label="Disability Start Date" format="g" />
+    <column name="ismodifiedduty" fieldName="Ismodifiedduty" label="Ismodifiedduty" />
+    <column name="modifiedduty_start_date" fieldName="ModifieddutyStartDate" label="Modifiedduty Start Date" format="g" />
+    <column name="hadSafeguards" fieldName="HadSafeguards" label="had Safeguards" />
+    <column name="wereSafeguardsUsed" fieldName="WereSafeguardsUsed" label="were Safeguards Used" />
+    <column name="isQuestionableClaim" fieldName="IsQuestionableClaim" label="is Questionable Claim" />
+    <column name="wasinjured_during_employment" fieldName="WasinjuredDuringEmployment" label="Wasinjured During Employment" />
+    <column name="witness_available" fieldName="WitnessAvailable" label="Witness Available" />
+    <column name="witness_name" fieldName="WitnessName" label="Witness Name" />
+    <column name="witness_phone" fieldName="WitnessPhone" label="Witness Phone" />
+    <column name="medical_treatment_facility_name" fieldName="MedicalTreatmentFacilityName" label="Medical Treatment Facility Name" />
+    <column name="medical_treatment_doctor_name" fieldName="MedicalTreatmentDoctorName" label="Medical Treatment Doctor Name" />
+    <column name="medical_treatment_address" fieldName="MedicalTreatmentAddress" label="Medical Treatment Address" />
+    <column name="medical_treatment_seeked" fieldName="MedicalTreatmentSeeked" label="Medical Treatment Seeked" />
+    <column name="medical_treatment_refused" fieldName="MedicalTreatmentRefused" label="Medical Treatment Refused" />
+    <column name="medical_treatment_doctors_notes_provided" fieldName="MedicalTreatmentDoctorsNotesProvided" label="Medical Treatment Doctors Notes Provided" />
+    <column name="temp_prescription_card_issued" fieldName="TempPrescriptionCardIssued" label="Temp Prescription Card Issued" />
+    <column name="comment" fieldName="Comment" label="Comment" />
+    <column name="created_date" fieldName="CreatedDate" label="Created Date" format="g" />
+  </columns>
+</dataModel>

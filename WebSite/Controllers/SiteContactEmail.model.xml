@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="SiteContactEmail" alias="SiteContactEmail" created="2017-07-18T10:11:10" modified="2017-07-28T11:50:38" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="siteContact" parentTableSchema="dbo" parentTableName="SiteContact" x="353" y="20">
+      <foreignKeyColumn columnName="siteContactId" parentColumnName="siteContactId" />
+    </foreignKey>
+    <foreignKey id="siteContactsite" parentTableSchema="dbo" parentTableName="Site" baseForeignKey="siteContact" x="687" y="20">
+      <foreignKeyColumn columnName="siteId" parentColumnName="siteid" />
+    </foreignKey>
+    <foreignKey id="siteContactcontactType" parentTableSchema="dbo" parentTableName="SiteContactType" baseForeignKey="siteContact" x="687" y="181">
+      <foreignKeyColumn columnName="contactTypeId" parentColumnName="contactTypeId" />
+    </foreignKey>
+    <foreignKey id="siteContactEmailType" parentTableSchema="dbo" parentTableName="SiteContactEmailType" x="353" y="227">
+      <foreignKeyColumn columnName="siteContactEmailTypeId" parentColumnName="siteContactEmailTypeId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="siteContactEmailId" fieldName="SiteContactEmailID" label="site Contact Email Id" />
+    <column name="siteContactId" fieldName="SiteContactID" label="site Contact Id" aliasColumnName="firstName" aliasForeignKey="siteContact" />
+    <column name="firstName" fieldName="SiteContactEmailfirstName" label="site Contactfirst Name" foreignKey="siteContact" />
+    <column name="lastName" fieldName="SitecontactLastname" label="Sitecontact Lastname" foreignKey="siteContact" />
+    <column name="jobno" fieldName="SiteContactEmailjobno" label="site Contactsitejobno" foreignKey="siteContactsite" />
+    <column name="site_name" fieldName="SitecontactEmailSiteName" label="Sitecontact Email Site Name" foreignKey="siteContactsite" />
+    <column name="contactTypeDetail" fieldName="SiteContactcontactTypecontactTypeDetail" label="site Contactcontact Typecontact Type Detail" foreignKey="siteContactcontactType" />
+    <column name="siteContactEmailTypeId" fieldName="SiteContactEmailTypeID" label="site Contact Email Type Id" aliasColumnName="EmailTypeDescription" aliasForeignKey="siteContactEmailType" />
+    <column name="EmailTypeDescription" fieldName="SiteContactEmailTypeDescription" label="site Contact Email Type Description" foreignKey="siteContactEmailType" />
+    <column name="email" fieldName="Email" label="Email" />
+    <column name="createdDate" fieldName="CreatedDate" label="created Date" format="g" />
+    <column name="createdBy" fieldName="CreatedBy" label="created By" />
+    <column name="siteid" fieldName="Siteid" label="Siteid" />
+    <column fieldName="contactEmailLable" type="nvarchar(155)" dataType="String" label="Contact Email Lable">
+      <formula>siteContact.lastName+', '+siteContact.firstName+' ('+SiteContactEmail.email+')'</formula>
+    </column>
+  </columns>
+</dataModel>

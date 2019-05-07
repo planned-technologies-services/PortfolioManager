@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode title="^SiteHome^Home^SiteHome^" description="" url="~/index.html">
+    <siteMapNode title="^HomePath^Home^HomePath^" description="^HomeDesc^Application home page^HomeDesc^" url="~/pages/home" cssClass="Wide" />
+    <siteMapNode title="Site" description="View Site" url="~/pages/site" />
+    <siteMapNode title="Site New" description="View Site New" url="~/pages/site-new" />
+    <siteMapNode title="Site Content" description="View Site Content" url="~/pages/site-content" roles="Administrators, Content Editors, Developers" />
+    <siteMapNode title="Maintenance" description="" url="~/pages/maintenance" roles="*">
+      <siteMapNode title="Site Attachment" description="View Site Attachment" url="~/pages/site-attachment" />
+      <siteMapNode title="Site Attachment Type" description="View Site Attachment Type" url="~/pages/site-attachment-type" />
+      <siteMapNode title="Site Contact" description="View Site Contact" url="~/pages/site-contact" />
+      <siteMapNode title="Site Contact Type" description="View Site Contact Type" url="~/pages/site-contact-type" />
+      <siteMapNode title="Site Contact Address" description="View Site Contact Address" url="~/pages/site-contact-address" />
+      <siteMapNode title="Site Contact Address Type" description="View Site Contact Address Type" url="~/pages/site-contact-address-type" />
+      <siteMapNode title="Site Contact Email" description="View Site Contact Email" url="~/pages/site-contact-email" />
+      <siteMapNode title="Site Contact Email Type" description="View Site Contact Email Type" url="~/pages/site-contact-email-type" />
+      <siteMapNode title="Site Contact Phone" description="View Site Contact Phone" url="~/pages/site-contact-phone" />
+      <siteMapNode title="Site Contact Phone Type" description="View Site Contact Phone Type" url="~/pages/site-contact-phone-type" />
+      <siteMapNode title="Site Communication" description="View Site Communication" url="~/pages/site-communication" />
+      <siteMapNode title="Site Communication Category" description="View Site Communication Category" url="~/pages/site-communication-category" />
+      <siteMapNode title="Site Communication Type" description="View Site Communication Type" url="~/pages/site-communication-type" />
+      <siteMapNode title="Site Task Type" description="View Site Task Type" url="~/pages/site-task-type" />
+      <siteMapNode title="Site Notes" description="View Site Notes" url="~/pages/site-notes" />
+      <siteMapNode title="Site Note Type" description="View Site Note Type" url="~/pages/site-note-type" />
+      <siteMapNode title="Payroll" description="View Payroll" url="~/pages/payroll" />
+      <siteMapNode title="Employee" description="View Employee" url="~/pages/employee" />
+      <siteMapNode title="Employee Rate History" description="View Employee Rate History" url="~/pages/employee-rate-history" />
+      <siteMapNode title="Job Cost Actual" description="View Job Cost Actual" url="~/pages/job-cost-actual" />
+      <siteMapNode title="Workers comp" description="View Form Hr Workerscomp" url="~/pages/form-hr-workerscomp" />
+      <siteMapNode title="Sms Message Log" description="View Sms Message Log" url="~/pages/sms-message-log" />
+      <siteMapNode title="Site Break Rule" description="View Site Break Rule" url="~/pages/site-break-rule" />
+      <siteMapNode title="Region" description="View Region" url="~/pages/region" />
+      <siteMapNode title="Manager" description="View Manager" url="~/pages/manager" />
+      <siteMapNode title="Customer Invoice" description="View V Collect Customer Invoice All" url="~/pages/vcollect-customer-invoice-all" />
+      <siteMapNode title="County" description="View County" url="~/pages/county" />
+      <siteMapNode title="Zipcode Directory" description="View Zipcode Directory" url="~/pages/zipcode-directory" />
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

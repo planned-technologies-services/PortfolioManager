@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="SiteNew" conflictDetection="overwriteChanges" label="Site New" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"siteNew"."siteid" "Siteid"
+	,"siteNew"."jobno" "Jobno"
+	,"siteNew"."jobstatus" "Jobstatus"
+	,"siteNew"."jobtype" "Jobtype"
+	,"siteNew"."sitetype_old" "SitetypeOld"
+	,"siteNew"."sitetype" "Sitetype"
+	,"siteNew"."managerid" "Managerid"
+	,"Manager"."displayname" "ManagerDisplayname"
+	,"siteNew"."regionid" "Regionid"
+	,"Region"."description" "RegionDescription"
+	,"siteNew"."ardivision_no" "ArdivisionNo"
+	,"siteNew"."customer_no" "CustomerNo"
+	,"siteNew"."company_code" "CompanyCode"
+	,"siteNew"."site_name" "SiteName"
+	,"siteNew"."parentid" "Parentid"
+	,"siteNew"."file_as" "FileAs"
+	,"siteNew"."timesheet_status" "TimesheetStatus"
+	,"siteNew"."propertymanagementid" "Propertymanagementid"
+	,"siteNew"."address1" "Address1"
+	,"siteNew"."address2" "Address2"
+	,"siteNew"."address3" "Address3"
+	,"siteNew"."city" "City"
+	,"siteNew"."state" "State"
+	,"siteNew"."zipcode" "Zipcode"
+	,"siteNew"."zipcode_new" "ZipcodeNew"
+	,"siteNew"."country_code" "CountryCode"
+	,"siteNew"."city_section" "CitySection"
+	,"siteNew"."city_section_new" "CitySectionNew"
+	,"siteNew"."citytaxcode" "Citytaxcode"
+	,"siteNew"."address2_validated" "Address2Validated"
+	,"siteNew"."phone" "Phone"
+	,"siteNew"."phone_ext" "PhoneExt"
+	,"siteNew"."fax" "Fax"
+	,"siteNew"."primary_email_address" "PrimaryEmailAddress"
+	,"siteNew"."website" "Website"
+	,"siteNew"."budget_dollars" "BudgetDollars"
+	,"siteNew"."budget_hours" "BudgetHours"
+	,"siteNew"."budget_salary_hours" "BudgetSalaryHours"
+	,"siteNew"."new_budget_dollars" "NewBudgetDollars"
+	,"siteNew"."new_budget_hours" "NewBudgetHours"
+	,"siteNew"."new_budget_salary_hours" "NewBudgetSalaryHours"
+	,"siteNew"."new_budget_effective_date" "NewBudgetEffectiveDate"
+	,"siteNew"."established_date" "EstablishedDate"
+	,"siteNew"."contract_renewal_date" "ContractRenewalDate"
+	,"siteNew"."termination_date" "TerminationDate"
+	,"siteNew"."note" "Note"
+	,"siteNew"."created_date" "CreatedDate"
+	,"siteNew"."created_by" "CreatedBy"
+	,"siteNew"."updated_date" "UpdatedDate"
+	,"siteNew"."updated_by" "UpdatedBy"
+	,"siteNew"."deleted" "Deleted"
+	,"siteNew"."skip_on_report" "SkipOnReport"
+	,"siteNew"."isUnion" "IsUnion"
+	,"siteNew"."budget_hours_future" "BudgetHoursFuture"
+	,"siteNew"."budget_dollars_future" "BudgetDollarsFuture"
+	,"siteNew"."budget_salary_hours_future" "BudgetSalaryHoursFuture"
+	,"siteNew"."budget_future_effective_date" "BudgetFutureEffectiveDate"
+	,"siteNew"."billingcyclecode" "Billingcyclecode"
+	,"siteNew"."vendorid_default" "VendoridDefault"
+	,"siteNew"."isSpecialProject" "IsSpecialProject"
+	,"siteNew"."isStandby" "IsStandby"
+	,"siteNew"."budget_effective_date" "BudgetEffectiveDate"
+	,"siteNew"."isholidayOTallowed" "IsholidayOtallowed"
+	,"siteNew"."sitedoc_filename_nextseq" "SitedocFilenameNextseq"
+	,"siteNew"."siteptomunid" "Siteptomunid"
+	,"siteNew"."terminated_date" "TerminatedDate"
+	,"siteNew"."lastinspection_date" "LastinspectionDate"
+	,"siteNew"."sitelogo_location" "SitelogoLocation"
+	,"siteNew"."is421a" "Is421a"
+	,"siteNew"."pto_type" "PtoType"
+	,"siteNew"."pto_vac" "PtoVac"
+	,"siteNew"."pto_sic" "PtoSic"
+	,"siteNew"."pto_per" "PtoPer"
+	,"siteNew"."holiday_count" "HolidayCount"
+	,"siteNew"."pto_vac_comment" "PtoVacComment"
+	,"siteNew"."pto_sic_comment" "PtoSicComment"
+	,"siteNew"."pto_per_comment" "PtoPerComment"
+	,"siteNew"."holiday_type" "HolidayType"
+	,"siteNew"."holiday_planid" "HolidayPlanid"
+	,"siteNew"."holiday_comment" "HolidayComment"
+	,"siteNew"."site_union_comment" "SiteUnionComment"
+	,"siteNew"."min_wage_jurisdiction" "MinWageJurisdiction"
+	,"siteNew"."map_isupdated" "MapIsupdated"
+	,"siteNew"."map_latitude_coordinate" "MapLatitudeCoordinate"
+	,"siteNew"."map_longitude_coordinate" "MapLongitudeCoordinate"
+	,"siteNew"."adp_lastsync_date" "AdpLastsyncDate"
+	,"siteNew"."paygroup_code" "PaygroupCode"
+	,"siteNew"."companyregion_code" "CompanyregionCode"
+	,"siteNew"."timezone_differential" "TimezoneDifferential"
+	,"siteNew"."showOrgChart" "ShowOrgChart"
+	,"siteNew"."sitebreakruleid" "Sitebreakruleid"
+	,"SiteBreakRule"."breakrule_desc" "SitebreakruleBreakruleDesc"
+	,"siteNew"."isbillback_sup" "IsbillbackSup"
+	,"siteNew"."isbillback_con" "IsbillbackCon"
+	,"siteNew"."isbillback_equ" "IsbillbackEqu"
+	,"siteNew"."billback_handlingcharge" "BillbackHandlingcharge"
+	,"siteNew"."budget_sup_exist" "BudgetSupExist"
+	,"siteNew"."budget_con_exist" "BudgetConExist"
+	,"siteNew"."budget_equ_exist" "BudgetEquExist"
+	,"siteNew"."last_paid_date" "LastPaidDate"
+	,"siteNew"."last_paid_assoc_count" "LastPaidAssocCount"
+from "dbo"."siteNew" "siteNew"
+	left join "dbo"."Manager" "Manager" on "siteNew"."managerid" = "Manager"."managerid"
+	left join "dbo"."SiteBreakRule" "SiteBreakRule" on "siteNew"."sitebreakruleid" = "SiteBreakRule"."sitebreakruleid"
+	left join "dbo"."Region" "Region" on "siteNew"."regionid" = "Region"."regionid"
+]]></text>
+    </command>
+    <command id="siteidIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Siteid" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Siteid" type="Int32" allowNulls="false" isPrimaryKey="true" label="Siteid" readOnly="true" />
+    <field name="Jobno" type="String" label="Job No" length="7" showInSummary="true" />
+    <field name="Jobstatus" type="String" label="Job Status" length="1" showInSummary="true" />
+    <field name="Jobtype" type="String" label="Job Type" length="10" showInSummary="true" />
+    <field name="Sitetype" type="Int32" label="Sitetype" showInSummary="true" />
+    <field name="Managerid" type="Int32" label="Managerid">
+      <items style="Lookup" dataController="Manager" newDataView="createForm1" dataValueField="Managerid" dataTextField="Displayname" />
+    </field>
+    <field name="ManagerDisplayname" type="String" readOnly="true" label="Manager  Name" length="50" />
+    <field name="Regionid" type="Int32" label="Regionid">
+      <items style="Lookup" dataController="Region" newDataView="createForm1" dataValueField="Regionid" dataTextField="Description" />
+    </field>
+    <field name="RegionDescription" type="String" readOnly="true" label="Region Description" length="50" />
+    <field name="ArdivisionNo" type="String" label="Ardivision No" length="2" />
+    <field name="CustomerNo" type="String" label="Customer No" length="7" />
+    <field name="CompanyCode" type="String" label="Company Code" length="3" />
+    <field name="SiteName" type="String" label="Site Name" length="30" />
+    <field name="Parentid" type="Int32" label="Parentid" />
+    <field name="FileAs" type="String" label="File As" length="80" />
+    <field name="TimesheetStatus" type="String" label="Timesheet Status" length="1" />
+    <field name="Propertymanagementid" type="Int32" label="Propertymanagementid" />
+    <field name="Address1" type="String" label="Address1" length="30" />
+    <field name="Address2" type="String" label="Address2" length="30" />
+    <field name="Address3" type="String" label="Address3" length="30" />
+    <field name="City" type="String" label="City" length="30" />
+    <field name="State" type="String" label="State" length="2" />
+    <field name="Zipcode" type="String" label="Zipcode" length="10">
+      <items style="DropDownList" dataController="ZipcodeDirectory" dataView="grid1" dataTextField="Zipcode" dataValueField="Zipcode" copy="City=City&#xD;&#xA;State=State&#xD;&#xA;CitySection=County" />
+    </field>
+    <field name="CountryCode" type="String" label="Country Code" length="3" />
+    <field name="CitySection" type="String" label="City Section" length="30">
+      <items style="DropDownList" dataController="County" dataView="grid1" dataTextField="countyState" dataValueField="County" />
+    </field>
+    <field name="Citytaxcode" type="String" label="Citytaxcode" length="6" />
+    <field name="Phone" type="String" label="Phone" length="17" />
+    <field name="PhoneExt" type="String" label="Phone Ext" length="8" />
+    <field name="Fax" type="String" label="Fax" length="17" />
+    <field name="PrimaryEmailAddress" type="String" label="Primary Email Address" length="50" />
+    <field name="Website" type="String" label="Website" length="50" />
+    <field name="BudgetDollars" type="Decimal" label="Budget Dollars" />
+    <field name="BudgetHours" type="Decimal" label="Budget Hours" />
+    <field name="BudgetSalaryHours" type="Decimal" dataFormatString="c" label="Budget Salary Hours" />
+    <field name="NewBudgetDollars" type="Decimal" label="New Budget Dollars" />
+    <field name="NewBudgetHours" type="Decimal" label="New Budget Hours" />
+    <field name="NewBudgetSalaryHours" type="Decimal" dataFormatString="c" label="New Budget Salary Hours" />
+    <field name="NewBudgetEffectiveDate" type="DateTime" dataFormatString="g" label="New Budget Effective Date" />
+    <field name="EstablishedDate" type="DateTime" dataFormatString="g" label="Established Date" />
+    <field name="ContractRenewalDate" type="DateTime" dataFormatString="g" label="Contract Renewal Date" />
+    <field name="Note" type="String" label="Note" length="255" />
+    <field name="CreatedDate" type="DateTime" dataFormatString="g" label="Created Date" />
+    <field name="CreatedBy" type="Int32" label="Created By" />
+    <field name="UpdatedDate" type="DateTime" dataFormatString="g" label="Updated Date" />
+    <field name="UpdatedBy" type="Int32" label="Updated By" />
+    <field name="IsUnion" type="Int32" label="is Union" />
+    <field name="BudgetHoursFuture" type="Decimal" label="Budget Hours Future" />
+    <field name="BudgetDollarsFuture" type="Decimal" label="Budget Dollars Future" />
+    <field name="BudgetSalaryHoursFuture" type="Decimal" dataFormatString="c" label="Budget Salary Hours Future" />
+    <field name="BudgetFutureEffectiveDate" type="DateTime" dataFormatString="g" label="Budget Future Effective Date" />
+    <field name="Billingcyclecode" type="String" label="Billingcyclecode" length="20" />
+    <field name="VendoridDefault" type="Int32" label="Vendorid Default" />
+    <field name="IsSpecialProject" type="String" label="is Special Project" length="1" />
+    <field name="IsStandby" type="String" label="is Standby" length="1" />
+    <field name="BudgetEffectiveDate" type="DateTime" dataFormatString="g" label="Budget Effective Date" />
+    <field name="IsholidayOtallowed" type="String" label="isholiday O Tallowed" length="1" />
+    <field name="Siteptomunid" type="Int32" label="Siteptomunid" />
+    <field name="TerminatedDate" type="DateTime" dataFormatString="g" label="Terminated Date" />
+    <field name="LastinspectionDate" type="DateTime" dataFormatString="g" label="Lastinspection Date" />
+    <field name="SitelogoLocation" type="String" label="Sitelogo Location" length="100" />
+    <field name="Is421a" type="String" label="Is421a" length="1" />
+    <field name="PtoType" type="String" label="Pto Type" length="1" />
+    <field name="PtoVac" type="String" label="Pto Vac" length="6" />
+    <field name="PtoSic" type="String" label="Pto Sic" length="6" />
+    <field name="PtoPer" type="String" label="Pto Per" length="6" />
+    <field name="HolidayCount" type="Int32" label="Holiday Count" />
+    <field name="PtoVacComment" type="String" label="Pto Vac Comment" length="255" />
+    <field name="PtoSicComment" type="String" label="Pto Sic Comment" length="255" />
+    <field name="PtoPerComment" type="String" label="Pto Per Comment" length="255" />
+    <field name="HolidayType" type="String" label="Holiday Type" length="1" />
+    <field name="HolidayPlanid" type="String" label="Holiday Planid" length="1" />
+    <field name="HolidayComment" type="String" label="Holiday Comment" length="255" />
+    <field name="SiteUnionComment" type="String" label="Site Union Comment" length="255" />
+    <field name="MinWageJurisdiction" type="String" label="Min Wage Jurisdiction" length="10" />
+    <field name="MapIsupdated" type="String" label="Map Isupdated" length="1" />
+    <field name="MapLatitudeCoordinate" type="String" label="Map Latitude Coordinate" length="50" />
+    <field name="MapLongitudeCoordinate" type="String" label="Map Longitude Coordinate" length="50" />
+    <field name="AdpLastsyncDate" type="DateTime" dataFormatString="g" label="Adp Lastsync Date" />
+    <field name="PaygroupCode" type="String" label="Paygroup Code" length="10" />
+    <field name="CompanyregionCode" type="String" label="Companyregion Code" length="6" />
+    <field name="TimezoneDifferential" type="Decimal" label="Timezone Differential" />
+    <field name="ShowOrgChart" type="String" label="show Org Chart" length="1" />
+    <field name="Sitebreakruleid" type="Int32" label="Sitebreakruleid">
+      <items style="Lookup" dataController="SiteBreakRule" newDataView="createForm1" dataValueField="Sitebreakruleid" dataTextField="BreakruleDesc" />
+    </field>
+    <field name="SitebreakruleBreakruleDesc" type="String" readOnly="true" label="Sitebreakrule Breakrule Desc" length="50" />
+    <field name="IsbillbackSup" type="String" label="Isbillback Sup" length="1" />
+    <field name="IsbillbackCon" type="String" label="Isbillback Con" length="1" />
+    <field name="IsbillbackEqu" type="String" label="Isbillback Equ" length="1" />
+    <field name="BillbackHandlingcharge" type="Decimal" label="Billback Handlingcharge" />
+    <field name="BudgetSupExist" type="String" label="Budget Sup Exist" length="1" />
+    <field name="BudgetConExist" type="String" label="Budget Con Exist" length="1" />
+    <field name="BudgetEquExist" type="String" label="Budget Equ Exist" length="1" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Site New">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Jobno" columns="7" />
+        <dataField fieldName="Jobstatus" columns="1" />
+        <dataField fieldName="Jobtype" columns="10" />
+        <dataField fieldName="Sitetype" columns="15" />
+        <dataField fieldName="Managerid" aliasFieldName="ManagerDisplayname" />
+        <dataField fieldName="Regionid" aliasFieldName="RegionDescription" />
+        <dataField fieldName="ArdivisionNo" columns="2" />
+        <dataField fieldName="CustomerNo" columns="7" />
+        <dataField fieldName="CompanyCode" columns="3" />
+        <dataField fieldName="SiteName" columns="30" />
+        <dataField fieldName="Parentid" columns="15" />
+        <dataField fieldName="FileAs" />
+        <dataField fieldName="TimesheetStatus" columns="1" />
+        <dataField fieldName="Propertymanagementid" columns="15" />
+        <dataField fieldName="Address1" columns="30" />
+        <dataField fieldName="Address2" columns="30" />
+        <dataField fieldName="Address3" columns="30" />
+        <dataField fieldName="City" columns="30" />
+        <dataField fieldName="State" columns="2" />
+        <dataField fieldName="Zipcode" columns="10" />
+        <dataField fieldName="CountryCode" columns="3" />
+        <dataField fieldName="CitySection" columns="30" />
+        <dataField fieldName="Citytaxcode" columns="6" />
+        <dataField fieldName="Phone" columns="17" />
+        <dataField fieldName="PhoneExt" columns="8" />
+        <dataField fieldName="Fax" columns="17" />
+        <dataField fieldName="PrimaryEmailAddress" columns="50" />
+        <dataField fieldName="Website" columns="50" />
+        <dataField fieldName="BudgetDollars" columns="15" />
+        <dataField fieldName="BudgetHours" columns="15" />
+        <dataField fieldName="BudgetSalaryHours" columns="15" />
+        <dataField fieldName="NewBudgetDollars" columns="15" />
+        <dataField fieldName="NewBudgetHours" columns="15" />
+        <dataField fieldName="NewBudgetSalaryHours" columns="15" />
+        <dataField fieldName="NewBudgetEffectiveDate" columns="20" />
+        <dataField fieldName="EstablishedDate" columns="20" />
+        <dataField fieldName="ContractRenewalDate" columns="20" />
+        <dataField fieldName="Note" />
+        <dataField fieldName="CreatedDate" columns="20" />
+        <dataField fieldName="CreatedBy" columns="15" />
+        <dataField fieldName="UpdatedDate" columns="20" />
+        <dataField fieldName="UpdatedBy" columns="15" />
+        <dataField fieldName="IsUnion" columns="15" />
+        <dataField fieldName="BudgetHoursFuture" columns="15" />
+        <dataField fieldName="BudgetDollarsFuture" columns="15" />
+        <dataField fieldName="BudgetSalaryHoursFuture" columns="15" />
+        <dataField fieldName="BudgetFutureEffectiveDate" columns="20" />
+        <dataField fieldName="Billingcyclecode" columns="20" />
+        <dataField fieldName="VendoridDefault" columns="15" />
+        <dataField fieldName="IsSpecialProject" columns="1" />
+        <dataField fieldName="IsStandby" columns="1" />
+        <dataField fieldName="BudgetEffectiveDate" columns="20" />
+        <dataField fieldName="IsholidayOtallowed" columns="1" />
+        <dataField fieldName="Siteptomunid" columns="15" />
+        <dataField fieldName="TerminatedDate" columns="20" />
+        <dataField fieldName="LastinspectionDate" columns="20" />
+        <dataField fieldName="SitelogoLocation" />
+        <dataField fieldName="Is421a" columns="1" />
+        <dataField fieldName="PtoType" columns="1" />
+        <dataField fieldName="PtoVac" columns="6" />
+        <dataField fieldName="PtoSic" columns="6" />
+        <dataField fieldName="PtoPer" columns="6" />
+        <dataField fieldName="HolidayCount" columns="15" />
+        <dataField fieldName="PtoVacComment" />
+        <dataField fieldName="PtoSicComment" />
+        <dataField fieldName="PtoPerComment" />
+        <dataField fieldName="HolidayType" columns="1" />
+        <dataField fieldName="HolidayPlanid" columns="1" />
+        <dataField fieldName="HolidayComment" />
+        <dataField fieldName="SiteUnionComment" />
+        <dataField fieldName="MinWageJurisdiction" columns="10" />
+        <dataField fieldName="MapIsupdated" columns="1" />
+        <dataField fieldName="MapLatitudeCoordinate" columns="50" />
+        <dataField fieldName="MapLongitudeCoordinate" columns="50" />
+        <dataField fieldName="AdpLastsyncDate" columns="20" />
+        <dataField fieldName="PaygroupCode" columns="10" />
+        <dataField fieldName="CompanyregionCode" columns="6" />
+        <dataField fieldName="TimezoneDifferential" columns="15" />
+        <dataField fieldName="ShowOrgChart" columns="1" />
+        <dataField fieldName="Sitebreakruleid" aliasFieldName="SitebreakruleBreakruleDesc" />
+        <dataField fieldName="IsbillbackSup" columns="1" />
+        <dataField fieldName="IsbillbackCon" columns="1" />
+        <dataField fieldName="IsbillbackEqu" columns="1" />
+        <dataField fieldName="BillbackHandlingcharge" columns="15" />
+        <dataField fieldName="BudgetSupExist" columns="1" />
+        <dataField fieldName="BudgetConExist" columns="1" />
+        <dataField fieldName="BudgetEquExist" columns="1" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Site New">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Site New" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Jobno" columns="7" />
+            <dataField fieldName="Jobstatus" columns="1" />
+            <dataField fieldName="Jobtype" columns="10" />
+            <dataField fieldName="Sitetype" columns="15" />
+            <dataField fieldName="Managerid" aliasFieldName="ManagerDisplayname" />
+            <dataField fieldName="Regionid" aliasFieldName="RegionDescription" />
+            <dataField fieldName="ArdivisionNo" columns="2" />
+            <dataField fieldName="CustomerNo" columns="7" />
+            <dataField fieldName="CompanyCode" columns="3" />
+            <dataField fieldName="SiteName" columns="30" />
+            <dataField fieldName="Parentid" columns="15" />
+            <dataField fieldName="FileAs" />
+            <dataField fieldName="TimesheetStatus" columns="1" />
+            <dataField fieldName="Propertymanagementid" columns="15" />
+            <dataField fieldName="Address1" columns="30" />
+            <dataField fieldName="Address2" columns="30" />
+            <dataField fieldName="Address3" columns="30" />
+            <dataField fieldName="City" columns="30" />
+            <dataField fieldName="State" columns="2" />
+            <dataField fieldName="Zipcode" columns="10" />
+            <dataField fieldName="CountryCode" columns="3" />
+            <dataField fieldName="CitySection" columns="30" />
+            <dataField fieldName="Citytaxcode" columns="6" />
+            <dataField fieldName="Phone" columns="17" />
+            <dataField fieldName="PhoneExt" columns="8" />
+            <dataField fieldName="Fax" columns="17" />
+            <dataField fieldName="PrimaryEmailAddress" columns="50" />
+            <dataField fieldName="Website" columns="50" />
+            <dataField fieldName="BudgetDollars" columns="15" />
+            <dataField fieldName="BudgetHours" columns="15" />
+            <dataField fieldName="BudgetSalaryHours" columns="15" />
+            <dataField fieldName="NewBudgetDollars" columns="15" />
+            <dataField fieldName="NewBudgetHours" columns="15" />
+            <dataField fieldName="NewBudgetSalaryHours" columns="15" />
+            <dataField fieldName="NewBudgetEffectiveDate" columns="20" />
+            <dataField fieldName="EstablishedDate" columns="20" />
+            <dataField fieldName="ContractRenewalDate" columns="20" />
+            <dataField fieldName="Note" />
+            <dataField fieldName="CreatedDate" columns="20" />
+            <dataField fieldName="CreatedBy" columns="15" />
+            <dataField fieldName="UpdatedDate" columns="20" />
+            <dataField fieldName="UpdatedBy" columns="15" />
+            <dataField fieldName="IsUnion" columns="15" />
+            <dataField fieldName="BudgetHoursFuture" columns="15" />
+            <dataField fieldName="BudgetDollarsFuture" columns="15" />
+            <dataField fieldName="BudgetSalaryHoursFuture" columns="15" />
+            <dataField fieldName="BudgetFutureEffectiveDate" columns="20" />
+            <dataField fieldName="Billingcyclecode" columns="20" />
+            <dataField fieldName="VendoridDefault" columns="15" />
+            <dataField fieldName="IsSpecialProject" columns="1" />
+            <dataField fieldName="IsStandby" columns="1" />
+            <dataField fieldName="BudgetEffectiveDate" columns="20" />
+            <dataField fieldName="IsholidayOtallowed" columns="1" />
+            <dataField fieldName="Siteptomunid" columns="15" />
+            <dataField fieldName="TerminatedDate" columns="20" />
+            <dataField fieldName="LastinspectionDate" columns="20" />
+            <dataField fieldName="SitelogoLocation" />
+            <dataField fieldName="Is421a" columns="1" />
+            <dataField fieldName="PtoType" columns="1" />
+            <dataField fieldName="PtoVac" columns="6" />
+            <dataField fieldName="PtoSic" columns="6" />
+            <dataField fieldName="PtoPer" columns="6" />
+            <dataField fieldName="HolidayCount" columns="15" />
+            <dataField fieldName="PtoVacComment" />
+            <dataField fieldName="PtoSicComment" />
+            <dataField fieldName="PtoPerComment" />
+            <dataField fieldName="HolidayType" columns="1" />
+            <dataField fieldName="HolidayPlanid" columns="1" />
+            <dataField fieldName="HolidayComment" />
+            <dataField fieldName="SiteUnionComment" />
+            <dataField fieldName="MinWageJurisdiction" columns="10" />
+            <dataField fieldName="MapIsupdated" columns="1" />
+            <dataField fieldName="MapLatitudeCoordinate" columns="50" />
+            <dataField fieldName="MapLongitudeCoordinate" columns="50" />
+            <dataField fieldName="AdpLastsyncDate" columns="20" />
+            <dataField fieldName="PaygroupCode" columns="10" />
+            <dataField fieldName="CompanyregionCode" columns="6" />
+            <dataField fieldName="TimezoneDifferential" columns="15" />
+            <dataField fieldName="ShowOrgChart" columns="1" />
+            <dataField fieldName="Sitebreakruleid" aliasFieldName="SitebreakruleBreakruleDesc" />
+            <dataField fieldName="IsbillbackSup" columns="1" />
+            <dataField fieldName="IsbillbackCon" columns="1" />
+            <dataField fieldName="IsbillbackEqu" columns="1" />
+            <dataField fieldName="BillbackHandlingcharge" columns="15" />
+            <dataField fieldName="BudgetSupExist" columns="1" />
+            <dataField fieldName="BudgetConExist" columns="1" />
+            <dataField fieldName="BudgetEquExist" columns="1" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="New Site New">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="New Site New" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Jobno" columns="7" />
+            <dataField fieldName="Jobstatus" columns="1" />
+            <dataField fieldName="Jobtype" columns="10" />
+            <dataField fieldName="Sitetype" columns="15" />
+            <dataField fieldName="Managerid" aliasFieldName="ManagerDisplayname" />
+            <dataField fieldName="Regionid" aliasFieldName="RegionDescription" />
+            <dataField fieldName="ArdivisionNo" columns="2" />
+            <dataField fieldName="CustomerNo" columns="7" />
+            <dataField fieldName="CompanyCode" columns="3" />
+            <dataField fieldName="SiteName" columns="30" />
+            <dataField fieldName="Parentid" columns="15" />
+            <dataField fieldName="FileAs" />
+            <dataField fieldName="TimesheetStatus" columns="1" />
+            <dataField fieldName="Propertymanagementid" columns="15" />
+            <dataField fieldName="Address1" columns="30" />
+            <dataField fieldName="Address2" columns="30" />
+            <dataField fieldName="Address3" columns="30" />
+            <dataField fieldName="City" columns="30" />
+            <dataField fieldName="State" columns="2" />
+            <dataField fieldName="Zipcode" columns="10" />
+            <dataField fieldName="CountryCode" columns="3" />
+            <dataField fieldName="CitySection" columns="30" />
+            <dataField fieldName="Citytaxcode" columns="6" />
+            <dataField fieldName="Phone" columns="17" />
+            <dataField fieldName="PhoneExt" columns="8" />
+            <dataField fieldName="Fax" columns="17" />
+            <dataField fieldName="PrimaryEmailAddress" columns="50" />
+            <dataField fieldName="Website" columns="50" />
+            <dataField fieldName="BudgetDollars" columns="15" />
+            <dataField fieldName="BudgetHours" columns="15" />
+            <dataField fieldName="BudgetSalaryHours" columns="15" />
+            <dataField fieldName="NewBudgetDollars" columns="15" />
+            <dataField fieldName="NewBudgetHours" columns="15" />
+            <dataField fieldName="NewBudgetSalaryHours" columns="15" />
+            <dataField fieldName="NewBudgetEffectiveDate" columns="20" />
+            <dataField fieldName="EstablishedDate" columns="20" />
+            <dataField fieldName="ContractRenewalDate" columns="20" />
+            <dataField fieldName="Note" />
+            <dataField fieldName="CreatedDate" columns="20" />
+            <dataField fieldName="CreatedBy" columns="15" />
+            <dataField fieldName="UpdatedDate" columns="20" />
+            <dataField fieldName="UpdatedBy" columns="15" />
+            <dataField fieldName="IsUnion" columns="15" />
+            <dataField fieldName="BudgetHoursFuture" columns="15" />
+            <dataField fieldName="BudgetDollarsFuture" columns="15" />
+            <dataField fieldName="BudgetSalaryHoursFuture" columns="15" />
+            <dataField fieldName="BudgetFutureEffectiveDate" columns="20" />
+            <dataField fieldName="Billingcyclecode" columns="20" />
+            <dataField fieldName="VendoridDefault" columns="15" />
+            <dataField fieldName="IsSpecialProject" columns="1" />
+            <dataField fieldName="IsStandby" columns="1" />
+            <dataField fieldName="BudgetEffectiveDate" columns="20" />
+            <dataField fieldName="IsholidayOtallowed" columns="1" />
+            <dataField fieldName="Siteptomunid" columns="15" />
+            <dataField fieldName="TerminatedDate" columns="20" />
+            <dataField fieldName="LastinspectionDate" columns="20" />
+            <dataField fieldName="SitelogoLocation" />
+            <dataField fieldName="Is421a" columns="1" />
+            <dataField fieldName="PtoType" columns="1" />
+            <dataField fieldName="PtoVac" columns="6" />
+            <dataField fieldName="PtoSic" columns="6" />
+            <dataField fieldName="PtoPer" columns="6" />
+            <dataField fieldName="HolidayCount" columns="15" />
+            <dataField fieldName="PtoVacComment" />
+            <dataField fieldName="PtoSicComment" />
+            <dataField fieldName="PtoPerComment" />
+            <dataField fieldName="HolidayType" columns="1" />
+            <dataField fieldName="HolidayPlanid" columns="1" />
+            <dataField fieldName="HolidayComment" />
+            <dataField fieldName="SiteUnionComment" />
+            <dataField fieldName="MinWageJurisdiction" columns="10" />
+            <dataField fieldName="MapIsupdated" columns="1" />
+            <dataField fieldName="MapLatitudeCoordinate" columns="50" />
+            <dataField fieldName="MapLongitudeCoordinate" columns="50" />
+            <dataField fieldName="AdpLastsyncDate" columns="20" />
+            <dataField fieldName="PaygroupCode" columns="10" />
+            <dataField fieldName="CompanyregionCode" columns="6" />
+            <dataField fieldName="TimezoneDifferential" columns="15" />
+            <dataField fieldName="ShowOrgChart" columns="1" />
+            <dataField fieldName="Sitebreakruleid" aliasFieldName="SitebreakruleBreakruleDesc" />
+            <dataField fieldName="IsbillbackSup" columns="1" />
+            <dataField fieldName="IsbillbackCon" columns="1" />
+            <dataField fieldName="IsbillbackEqu" columns="1" />
+            <dataField fieldName="BillbackHandlingcharge" columns="15" />
+            <dataField fieldName="BudgetSupExist" columns="1" />
+            <dataField fieldName="BudgetConExist" columns="1" />
+            <dataField fieldName="BudgetEquExist" columns="1" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="Delete" />
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="Delete" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+</dataController>

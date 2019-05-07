@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="smsMessageLog" alias="smsMessageLog" created="2017-07-31T09:38:15" modified="2017-07-31T11:25:13" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Employee" parentTableSchema="dbo" parentTableName="Employee" x="355" y="20">
+      <foreignKeyColumn columnName="eecid" parentColumnName="ultipro_employeeid" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="smlogid" fieldName="Smlogid" label="Smlogid" />
+    <column name="direction" fieldName="Direction" label="Direction" />
+    <column name="from_phoneno" fieldName="FromPhoneno" label="From Phoneno" />
+    <column name="to_phoneno" fieldName="ToPhoneno" label="To Phoneno" />
+    <column name="fromCity" fieldName="FromCity" label="from City" />
+    <column name="fromState" fieldName="FromState" label="from State" />
+    <column name="fromZip" fieldName="FromZip" label="from Zip" />
+    <column name="fromCountry" fieldName="FromCountry" label="from Country" />
+    <column name="smsMessageID" fieldName="SmsMessageID" label="sms Message ID" />
+    <column name="sms_message" fieldName="SmsMessage" label="Sms Message" />
+    <column name="smsStatus" fieldName="SmsStatus" label="sms Status" />
+    <column name="smsSentDate" fieldName="SmsSentDate" label="sms Sent Date" format="g" />
+    <column name="eecid" fieldName="Eecid" label="Eecid" />
+    <column name="employeeid" fieldName="EmployeeSMSEmployeeid" label="Employee Smsemployeeid" foreignKey="Employee" />
+    <column name="filenumber" fieldName="EmployeeSMSFilenumber" label="Employee Smsfilenumber" foreignKey="Employee" />
+    <column name="first_name" fieldName="EmployeeSMSFirstName" label="Employee Smsfirst Name" foreignKey="Employee" />
+    <column name="last_name" fieldName="EmployeeSMSLastName" label="Employee Smslast Name" foreignKey="Employee" />
+    <column name="ultipro_employeeid" fieldName="EmployeeUltiproEmployeeid" label="Employee Ultipro Employeeid" foreignKey="Employee" />
+    <column name="smsStatusCallback" fieldName="SmsStatusCallback" label="sms Status Callback" />
+    <column name="smsStatusCallbackDate" fieldName="SmsStatusCallbackDate" label="sms Status Callback Date" format="g" />
+    <column name="created_date" fieldName="CreatedDate" label="Created Date" format="g" />
+  </columns>
+</dataModel>

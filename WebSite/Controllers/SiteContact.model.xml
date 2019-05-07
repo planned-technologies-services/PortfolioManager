@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="SiteContact" alias="SiteContact" created="2017-07-18T10:08:55" modified="2017-07-27T13:22:28" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="site" parentTableSchema="dbo" parentTableName="Site" x="307" y="20">
+      <foreignKeyColumn columnName="siteId" parentColumnName="siteid" />
+    </foreignKey>
+    <foreignKey id="contactType" parentTableSchema="dbo" parentTableName="SiteContactType" x="307" y="182">
+      <foreignKeyColumn columnName="contactTypeId" parentColumnName="contactTypeId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="siteContactId" fieldName="SiteContactID" label="site Contact Id" />
+    <column name="siteId" fieldName="SiteID" label="site Id" aliasColumnName="jobno" aliasForeignKey="site" />
+    <column name="jobno" fieldName="Sitejobno" label="Sitejobno" foreignKey="site" />
+    <column name="site_name" fieldName="SiteContactSiteName" label="Site Contact Site Name" foreignKey="site" />
+    <column name="contactTypeId" fieldName="ContactTypeID" label="contact Type Id" aliasColumnName="contactTypeDetail" aliasForeignKey="contactType" />
+    <column name="contactTypeDetail" fieldName="ContactTypecontactTypeDetail" label="contact Typecontact Type Detail" foreignKey="contactType" />
+    <column name="firstName" fieldName="FirstName" label="first Name" />
+    <column name="lastName" fieldName="LastName" label="last Name" />
+    <column name="createdDate" fieldName="CreatedDate" label="created Date" format="g" />
+    <column name="createdBy" fieldName="CreatedBy" label="created By" />
+    <column fieldName="contactFullName" type="nvarchar(102)" dataType="String" label="Contact Full Name">
+      <formula>SiteContact.lastName+', '+SiteContact.firstName</formula>
+    </column>
+    <column fieldName="FirstEmail" type="varchar(50)" dataType="String" label="First Email">
+      <formula>select Top 1 email from siteContactEmail where SiteContact.siteContactId = SiteContactEmail.siteContactId</formula>
+    </column>
+    <column fieldName="SiteContactDetail" type="nvarchar(155)" dataType="String" label="Site Contact Detail">
+      <formula>SiteContact.lastName+', '+SiteContact.firstName+' ('+contactType.contactTypeDetail+')'</formula>
+    </column>
+  </columns>
+</dataModel>

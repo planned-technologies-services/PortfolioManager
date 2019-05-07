@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="SiteAttachmentType" alias="SiteAttachmentType" created="2017-07-18T10:08:03" modified="2017-07-18T10:08:33" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="siteAttachmentTypeId" fieldName="SiteAttachmentTypeID" label="site Attachment Type Id" />
+    <column name="AttachmentTypeDescription" fieldName="AttachmentTypeDescription" label="Attachment Type Description" />
+    <column name="createdBy" fieldName="CreatedBy" label="created By" />
+  </columns>
+</dataModel>

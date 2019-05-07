@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Employee" conflictDetection="overwriteChanges" label="Employee" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Employee"."employeeid" "Employeeid"
+	,"Employee"."ultipro_employeeid" "UltiproEmployeeid"
+	,"Employee"."company_code" "CompanyCode"
+	,"Employee"."site_code" "SiteCode"
+	,"Employee"."filenumber" "Filenumber"
+	,"Employee"."first_name" "FirstName"
+	,"Employee"."last_name" "LastName"
+	,"Employee"."employment_status" "EmploymentStatus"
+	,"Employee"."employement_status_override" "EmployementStatusOverride"
+	,"Employee"."union_status" "UnionStatus"
+	,"Employee"."lastpaid_date" "LastpaidDate"
+	,"Employee"."position_code" "PositionCode"
+	,"Employee"."position" "Position"
+	,"Employee"."address1" "Address1"
+	,"Employee"."address2" "Address2"
+	,"Employee"."city" "City"
+	,"Employee"."state" "State"
+	,"Employee"."zipcode" "Zipcode"
+	,"Employee"."phone_home" "PhoneHome"
+	,"Employee"."phone_mobile" "PhoneMobile"
+	,"Employee"."email" "Email"
+	,"Employee"."gender" "Gender"
+	,"Employee"."maritalstatus" "Maritalstatus"
+	,"Employee"."homedept" "Homedept"
+	,"Site"."site_name" "SiteName"
+	,"Site"."siteid" "SiteSiteid"
+	,"Employee"."employeetype" "Employeetype"
+	,"Employee"."rate1amt" "Rate1amt"
+	,"Employee"."birthdate" "Birthdate"
+	,"Employee"."hire_date" "HireDate"
+	,"Employee"."rehire_date" "RehireDate"
+	,"Employee"."seniority_date" "SeniorityDate"
+	,"Employee"."termination_date" "TerminationDate"
+	,"Employee"."termination_code" "TerminationCode"
+	,"Employee"."termination_type" "TerminationType"
+	,"Employee"."termination_reason" "TerminationReason"
+	,"Employee"."termination_note" "TerminationNote"
+	,"Employee"."autopaid" "Autopaid"
+	,"Employee"."paygroup" "Paygroup"
+	,"Employee"."ultipro_updated_date" "UltiproUpdatedDate"
+	,"Employee"."federal_id" "FederalID"
+	,"Employee"."salhr_type" "SalhrType"
+	,"Employee"."autopay" "Autopay"
+	,"Employee"."paidthru_date" "PaidthruDate"
+	,"Employee"."Allow_401K_Eligibility" "Allow401kEligibility"
+	,"Employee"."scheduledwork_hours" "ScheduledworkHours"
+	,"Employee"."workstatus" "Workstatus"
+	,"Employee"."email_comment" "EmailComment"
+	,"Employee"."email_status" "EmailStatus"
+	,"Employee"."isPTOActive" "IsPtoactive"
+	,"Employee"."pto_vac_code" "PtoVacCode"
+	,"Employee"."pto_sic_code" "PtoSicCode"
+	,"Employee"."pto_per_code" "PtoPerCode"
+	,"Employee"."pto_note" "PtoNote"
+	,"Employee"."jobcode" "Jobcode"
+	,"Employee"."location" "Location"
+	,"Employee"."last_eec_timestamp" "LastEecTimestamp"
+	,"Employee"."timeclockcode" "Timeclockcode"
+	,"Employee"."homecompanycode" "Homecompanycode"
+	,"Employee"."orglevel2code" "Orglevel2code"
+	,"Employee"."orglevel3code" "Orglevel3code"
+	,"Employee"."mobile_carrier_code" "MobileCarrierCode"
+	,"Employee"."mobile_carrier_name" "MobileCarrierName"
+	,"Employee"."mobile_phone_type" "MobilePhoneType"
+	,"Employee"."mobile_carrier_country_code" "MobileCarrierCountryCode"
+	,"Employee"."ask_join_message" "AskJoinMessage"
+	,"Employee"."ethnicid" "Ethnicid"
+	,"Employee"."county" "County"
+	,"Employee"."middle_name" "MiddleName"
+	,"Employee"."i9_doca_code" "I9DocaCode"
+	,"Employee"."i9_docb_code" "I9DocbCode"
+	,"Employee"."i9_docc_code" "I9DoccCode"
+	,"Employee"."federal_dependents_num" "FederalDependentsNum"
+	,"Employee"."state_dependents_num" "StateDependentsNum"
+	,"Employee"."federal_maritalstatus" "FederalMaritalstatus"
+	,"Employee"."state_maritalstatus" "StateMaritalstatus"
+	,"Employee"."local_tax_code" "LocalTaxCode"
+	,"Employee"."income_tax_state" "IncomeTaxState"
+	,"Employee"."ethnic_code" "EthnicCode"
+	,"Employee"."last_effective_date" "LastEffectiveDate"
+	,"Employee"."enrollment_current_year" "EnrollmentCurrentYear"
+	,"Employee"."enrollment_pending_year" "EnrollmentPendingYear"
+	,"Employee"."enrollment_prior_year" "EnrollmentPriorYear"
+	,"Employee"."enrollment_exception_note" "EnrollmentExceptionNote"
+	,"Employee"."ws_import_error_status" "WsImportErrorStatus"
+	,"Employee"."ws_import_error_msg" "WsImportErrorMsg"
+	,"Employee"."ws_filenumber" "WsFilenumber"
+	,"Employee"."ws_ultipro_employeeid" "WsUltiproEmployeeid"
+	,"Employee"."last_payrate_increase_date" "LastPayrateIncreaseDate"
+	,"Employee"."last_payrate_increase_amount" "LastPayrateIncreaseAmount"
+	,"Employee"."last_payrate_increase_perc" "LastPayrateIncreasePerc"
+	,"Employee"."adp_lastsync_date" "AdpLastsyncDate"
+	,"Employee"."created_date" "CreatedDate"
+from "dbo"."Employee" "Employee"
+	left join "dbo"."Site" "Site" on "Employee"."homedept" = "Site"."jobno"
+]]></text>
+    </command>
+    <command id="employeeidIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Employeeid" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Employeeid" type="Int32" allowNulls="false" isPrimaryKey="true" label="Employeeid" readOnly="true" />
+    <field name="UltiproEmployeeid" type="String" label="Ultipro Employeeid" length="20" showInSummary="true" />
+    <field name="CompanyCode" type="String" label="Company Code" length="50" showInSummary="true" />
+    <field name="SiteCode" type="String" label="Site Code" length="3" showInSummary="true" />
+    <field name="Filenumber" type="String" label="Filenumber" length="7" showInSummary="true" />
+    <field name="FirstName" type="String" label="First Name" length="30" showInSummary="true" />
+    <field name="LastName" type="String" label="Last Name" length="30" />
+    <field name="EmploymentStatus" type="String" label="Employment Status" length="10">
+      <items style="DropDownList">
+        <item value="A" text="Active" />
+        <item value="T" text="Terminated" />
+        <item value="L" text="Leave of absence" />
+      </items>
+    </field>
+    <field name="EmployementStatusOverride" type="String" label="Employement Status Override" length="1" />
+    <field name="UnionStatus" type="String" label="Union" length="10" />
+    <field name="LastpaidDate" type="DateTime" dataFormatString="d" label="Lastpaid Date" />
+    <field name="PositionCode" type="String" label="Position Code" length="8" />
+    <field name="Position" type="String" label="Position" length="65" />
+    <field name="Address1" type="String" label="Address1" length="30" />
+    <field name="Address2" type="String" label="Address2" length="30" />
+    <field name="City" type="String" label="City" length="30" />
+    <field name="State" type="String" label="State" length="2" />
+    <field name="Zipcode" type="String" label="Zipcode" length="10" />
+    <field name="PhoneHome" type="String" label="Phone Home" length="20" />
+    <field name="PhoneMobile" type="String" label="Phone Mobile" length="20" />
+    <field name="Email" type="String" label="Email" length="60" />
+    <field name="Gender" type="String" label="Gender" length="1" />
+    <field name="Maritalstatus" type="String" label="Maritalstatus" length="1" />
+    <field name="Homedept" type="String" label="Homedept" length="7">
+      <items style="Lookup" dataController="Site" dataValueField="Jobno" dataTextField="SiteName" copy="SiteSiteid=Siteid" />
+    </field>
+    <field name="SiteName" type="String" readOnly="true" label="Site Name" length="30" />
+    <field name="SiteSiteid" type="Int32" label="Site Siteid" readOnly="true" />
+    <field name="Employeetype" type="String" label="Employeetype" length="50" />
+    <field name="Rate1amt" type="Decimal" label="Pay Rate" dataFormatString="C2" />
+    <field name="Birthdate" type="DateTime" dataFormatString="g" label="Birthdate" />
+    <field name="HireDate" type="DateTime" dataFormatString="g" label="Hire Date" />
+    <field name="RehireDate" type="DateTime" dataFormatString="g" label="Rehire Date" />
+    <field name="SeniorityDate" type="DateTime" dataFormatString="d" label="Seniority Date" />
+    <field name="TerminationDate" type="DateTime" dataFormatString="g" label="Termination Date" />
+    <field name="TerminationCode" type="String" label="Termination Code" length="6" />
+    <field name="TerminationType" type="String" label="Termination Type" length="3" />
+    <field name="TerminationReason" type="String" label="Termination Reason" length="50" />
+    <field name="TerminationNote" type="String" allowQBE="false" allowSorting="false" label="Termination Note" />
+    <field name="Autopaid" type="String" label="Autopaid" length="1" />
+    <field name="Paygroup" type="String" label="Paygroup" length="6" />
+    <field name="UltiproUpdatedDate" type="DateTime" dataFormatString="g" label="Ultipro Updated Date" />
+    <field name="FederalID" type="String" label="Federal Id" length="12" />
+    <field name="SalhrType" type="String" label="Salhr Type" length="1" />
+    <field name="Autopay" type="String" label="Autopay" length="1" />
+    <field name="PaidthruDate" type="DateTime" dataFormatString="g" label="Paidthru Date" />
+    <field name="Allow401kEligibility" type="Int32" label="Allow 401K Eligibility" />
+    <field name="ScheduledworkHours" type="Decimal" label="Scheduledwork Hours" />
+    <field name="Workstatus" type="String" label="Workstatus" length="50" />
+    <field name="EmailComment" type="String" label="Email Comment" length="50" />
+    <field name="EmailStatus" type="String" label="Email Status" length="1" />
+    <field name="IsPtoactive" type="String" label="is PTO Active" length="1" />
+    <field name="PtoVacCode" type="String" label="Pto Vac Code" length="6" />
+    <field name="PtoSicCode" type="String" label="Pto Sic Code" length="6" />
+    <field name="PtoPerCode" type="String" label="Pto Per Code" length="6" />
+    <field name="PtoNote" type="String" label="Pto Note" length="300" />
+    <field name="Jobcode" type="String" label="Jobcode" length="10" />
+    <field name="Location" type="String" label="Location" length="10" />
+    <field name="LastEecTimestamp" type="DateTime" dataFormatString="g" label="Last Eec Timestamp" />
+    <field name="Timeclockcode" type="String" label="Timeclockcode" length="20" />
+    <field name="Homecompanycode" type="String" label="Homecompanycode" length="5" />
+    <field name="Orglevel2code" type="String" label="Orglevel2code" length="3" />
+    <field name="Orglevel3code" type="String" label="Orglevel3code" length="20" />
+    <field name="MobileCarrierCode" type="String" label="Mobile Carrier Code" length="10" />
+    <field name="MobileCarrierName" type="String" label="Mobile Carrier Name" length="50" />
+    <field name="MobilePhoneType" type="String" label="Mobile Phone Type" length="50" />
+    <field name="MobileCarrierCountryCode" type="String" label="Mobile Carrier Country Code" length="50" />
+    <field name="AskJoinMessage" type="String" default="('N')" label="Ask Join Message" length="1" />
+    <field name="Ethnicid" type="Int32" label="Ethnicid" />
+    <field name="County" type="String" label="County" length="35" />
+    <field name="MiddleName" type="String" label="Middle Name" length="35" />
+    <field name="I9DocaCode" type="String" label="I9 Doca Code" length="10" />
+    <field name="I9DocbCode" type="String" label="I9 Docb Code" length="10" />
+    <field name="I9DoccCode" type="String" label="I9 Docc Code" length="10" />
+    <field name="FederalDependentsNum" type="Int32" label="Federal Dependents Num" />
+    <field name="StateDependentsNum" type="Int32" label="State Dependents Num" />
+    <field name="FederalMaritalstatus" type="String" label="Federal Maritalstatus" length="2" />
+    <field name="StateMaritalstatus" type="String" label="State Maritalstatus" length="2" />
+    <field name="LocalTaxCode" type="String" label="Local Tax Code" length="20" />
+    <field name="IncomeTaxState" type="String" label="Income Tax State" length="2" />
+    <field name="EthnicCode" type="String" label="Ethnic Code" length="1" />
+    <field name="LastEffectiveDate" type="DateTime" dataFormatString="g" label="Last Effective Date" />
+    <field name="EnrollmentCurrentYear" type="String" label="Enrollment Current Year" length="25" />
+    <field name="EnrollmentPendingYear" type="String" label="Enrollment Pending Year" length="25" />
+    <field name="EnrollmentPriorYear" type="String" label="Enrollment Prior Year" length="25" />
+    <field name="EnrollmentExceptionNote" type="String" label="Enrollment Exception Note" length="25" />
+    <field name="WsImportErrorStatus" type="String" label="Ws Import Error Status" length="5" />
+    <field name="WsImportErrorMsg" type="String" allowQBE="false" allowSorting="false" label="Ws Import Error Msg" />
+    <field name="WsFilenumber" type="String" label="Ws Filenumber" length="10" />
+    <field name="WsUltiproEmployeeid" type="String" label="Ws Ultipro Employeeid" length="20" />
+    <field name="LastPayrateIncreaseDate" type="DateTime" dataFormatString="d" label="Last Rate Change Date" />
+    <field name="LastPayrateIncreaseAmount" type="Decimal" label="Last Rate Change Amt" dataFormatString="C2" />
+    <field name="LastPayrateIncreasePerc" type="Decimal" label="Last Rate Change %" dataFormatString="n" />
+    <field name="AdpLastsyncDate" type="DateTime" dataFormatString="g" label="Adp Lastsync Date" />
+    <field name="CreatedDate" type="DateTime" dataFormatString="g" default="(getdate())" label="Created Date" />
+    <field name="EmployeeFullName" type="String" readOnly="true" label="Employee Full Name" computed="true">
+      <formula>Employee.last_name+', '+Employee.first_name</formula>
+    </field>
+    <field name="EmployeeRateHistory" type="DataView" label="Employee Rate History">
+      <dataView controller="EmployeeRateHistory" view="grid1" filterFields="Employeeid" />
+    </field>
+    <field name="FormHrWorkerscomp" type="DataView" label="Form Hr Workerscomp">
+      <dataView controller="FormHrWorkerscomp" view="grid1" filterFields="Employeeid" />
+    </field>
+    <field name="SmsMessageLog" type="DataView" label="Sms Message Log">
+      <dataView controller="SmsMessageLog" view="grid1" filterFields="EmployeeSMSEmployeeid" />
+    </field>
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Employee" filter="employment_status &lt;&gt; 'T'" sortExpression="EmployeeFullName asc">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="EmployeeFullName" columns="40" />
+        <dataField fieldName="Filenumber" columns="7" />
+        <dataField fieldName="EmploymentStatus" columns="1" />
+        <dataField fieldName="UnionStatus" columns="10" />
+        <dataField fieldName="LastpaidDate" columns="20" />
+        <dataField fieldName="Position" />
+        <dataField fieldName="Homedept" aliasFieldName="SiteName" hidden="true" />
+        <dataField fieldName="SiteSiteid" columns="15" hidden="true" />
+        <dataField fieldName="Employeetype" columns="50" />
+        <dataField fieldName="Rate1amt" columns="15" />
+        <dataField fieldName="SeniorityDate" columns="20" />
+        <dataField fieldName="ScheduledworkHours" columns="15" />
+        <dataField fieldName="Workstatus" columns="50" />
+        <dataField fieldName="LastPayrateIncreaseDate" columns="20" />
+        <dataField fieldName="LastPayrateIncreaseAmount" columns="15" />
+        <dataField fieldName="LastPayrateIncreasePerc" columns="15" />
+        <dataField fieldName="UltiproEmployeeid" columns="20" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Employee">
+      <headerText />
+      <categories>
+        <category id="c2" tab="Rate History" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="EmployeeRateHistory" columns="15" />
+          </dataFields>
+        </category>
+        <category tab="Workers Comp" id="c3">
+          <dataFields>
+            <dataField fieldName="FormHrWorkerscomp" columns="15" />
+          </dataFields>
+        </category>
+        <category tab="PECS" id="c4">
+          <dataFields>
+            <dataField fieldName="SmsMessageLog" columns="15" />
+          </dataFields>
+        </category>
+        <category id="c1" headerText="Employee" flow="NewRow">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="UltiproEmployeeid" columns="20" />
+            <dataField fieldName="CompanyCode" columns="50" />
+            <dataField fieldName="SiteCode" columns="3" />
+            <dataField fieldName="Filenumber" columns="7" />
+            <dataField fieldName="FirstName" columns="30" />
+            <dataField fieldName="LastName" columns="30" />
+            <dataField fieldName="EmploymentStatus" columns="1" />
+            <dataField fieldName="EmployementStatusOverride" columns="1" />
+            <dataField fieldName="UnionStatus" columns="10" />
+            <dataField fieldName="LastpaidDate" columns="20" />
+            <dataField fieldName="PositionCode" columns="8" />
+            <dataField fieldName="Position" />
+            <dataField fieldName="Address1" columns="30" />
+            <dataField fieldName="Address2" columns="30" />
+            <dataField fieldName="City" columns="30" />
+            <dataField fieldName="State" columns="2" />
+            <dataField fieldName="Zipcode" columns="10" />
+            <dataField fieldName="PhoneHome" columns="20" />
+            <dataField fieldName="PhoneMobile" columns="20" />
+            <dataField fieldName="Email" />
+            <dataField fieldName="Gender" columns="1" />
+            <dataField fieldName="Maritalstatus" columns="1" />
+            <dataField fieldName="Homedept" aliasFieldName="SiteName" />
+            <dataField fieldName="SiteSiteid" columns="15" />
+            <dataField fieldName="Employeetype" columns="50" />
+            <dataField fieldName="Rate1amt" columns="15" />
+            <dataField fieldName="Birthdate" columns="20" />
+            <dataField fieldName="HireDate" columns="20" />
+            <dataField fieldName="RehireDate" columns="20" />
+            <dataField fieldName="SeniorityDate" columns="20" />
+            <dataField fieldName="TerminationDate" columns="20" />
+            <dataField fieldName="TerminationCode" columns="6" />
+            <dataField fieldName="TerminationType" columns="3" />
+            <dataField fieldName="TerminationReason" columns="50" />
+            <dataField fieldName="TerminationNote" rows="5" />
+            <dataField fieldName="Autopaid" columns="1" />
+            <dataField fieldName="Paygroup" columns="6" />
+            <dataField fieldName="UltiproUpdatedDate" columns="20" />
+            <dataField fieldName="SalhrType" columns="1" />
+            <dataField fieldName="Autopay" columns="1" />
+            <dataField fieldName="PaidthruDate" columns="20" />
+            <dataField fieldName="Allow401kEligibility" columns="15" />
+            <dataField fieldName="ScheduledworkHours" columns="15" />
+            <dataField fieldName="Workstatus" columns="50" />
+            <dataField fieldName="EmailComment" columns="50" />
+            <dataField fieldName="EmailStatus" columns="1" />
+            <dataField fieldName="IsPtoactive" columns="1" />
+            <dataField fieldName="PtoVacCode" columns="6" />
+            <dataField fieldName="PtoSicCode" columns="6" />
+            <dataField fieldName="PtoPerCode" columns="6" />
+            <dataField fieldName="PtoNote" />
+            <dataField fieldName="Jobcode" columns="10" />
+            <dataField fieldName="Location" columns="10" />
+            <dataField fieldName="LastEecTimestamp" columns="20" />
+            <dataField fieldName="Timeclockcode" columns="20" />
+            <dataField fieldName="Homecompanycode" columns="5" />
+            <dataField fieldName="Orglevel2code" columns="3" />
+            <dataField fieldName="Orglevel3code" columns="20" />
+            <dataField fieldName="MobileCarrierCode" columns="10" />
+            <dataField fieldName="MobileCarrierName" columns="50" />
+            <dataField fieldName="MobilePhoneType" columns="50" />
+            <dataField fieldName="MobileCarrierCountryCode" columns="50" />
+            <dataField fieldName="AskJoinMessage" columns="1" />
+            <dataField fieldName="Ethnicid" columns="15" />
+            <dataField fieldName="County" columns="35" />
+            <dataField fieldName="MiddleName" columns="35" />
+            <dataField fieldName="I9DocaCode" columns="10" />
+            <dataField fieldName="I9DocbCode" columns="10" />
+            <dataField fieldName="I9DoccCode" columns="10" />
+            <dataField fieldName="FederalDependentsNum" columns="15" />
+            <dataField fieldName="StateDependentsNum" columns="15" />
+            <dataField fieldName="FederalMaritalstatus" columns="2" />
+            <dataField fieldName="StateMaritalstatus" columns="2" />
+            <dataField fieldName="LocalTaxCode" columns="20" />
+            <dataField fieldName="IncomeTaxState" columns="2" />
+            <dataField fieldName="EthnicCode" columns="1" />
+            <dataField fieldName="LastEffectiveDate" columns="20" />
+            <dataField fieldName="EnrollmentCurrentYear" columns="25" />
+            <dataField fieldName="EnrollmentPendingYear" columns="25" />
+            <dataField fieldName="EnrollmentPriorYear" columns="25" />
+            <dataField fieldName="EnrollmentExceptionNote" columns="25" />
+            <dataField fieldName="WsImportErrorStatus" columns="5" />
+            <dataField fieldName="WsImportErrorMsg" rows="5" />
+            <dataField fieldName="WsFilenumber" columns="10" />
+            <dataField fieldName="WsUltiproEmployeeid" columns="20" />
+            <dataField fieldName="LastPayrateIncreaseDate" columns="20" />
+            <dataField fieldName="LastPayrateIncreaseAmount" columns="15" />
+            <dataField fieldName="LastPayrateIncreasePerc" columns="15" />
+            <dataField fieldName="AdpLastsyncDate" columns="20" />
+            <dataField fieldName="CreatedDate" columns="20" />
+            <dataField fieldName="EmployeeFullName" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a6" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a5" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+</dataController>

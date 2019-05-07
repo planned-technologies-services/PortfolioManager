@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Manager" alias="Manager" created="2017-08-01T15:16:28" modified="2017-08-01T15:16:38" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="managerid" fieldName="Managerid" label="Managerid" />
+    <column name="company_code" fieldName="CompanyCode" label="Company Code" />
+    <column name="userid" fieldName="Userid" label="Userid" />
+    <column name="first_name" fieldName="FirstName" label="First Name" />
+    <column name="last_name" fieldName="LastName" label="Last Name" />
+    <column name="displayname" fieldName="Displayname" label="Displayname" />
+    <column name="adp_file_no" fieldName="AdpFileNo" label="Adp File No" />
+    <column name="titletype" fieldName="Titletype" label="Titletype" />
+    <column name="region" fieldName="Region" label="Region" />
+    <column name="active" fieldName="Active" label="Active" />
+    <column name="recruiter_userid" fieldName="RecruiterUserid" label="Recruiter Userid" />
+    <column name="comment" fieldName="Comment" label="Comment" />
+    <column name="deleted" fieldName="Deleted" label="Deleted" />
+    <column name="created_by" fieldName="CreatedBy" label="Created By" />
+    <column name="created_date" fieldName="CreatedDate" label="Created Date" format="g" />
+    <column name="updated_by" fieldName="UpdatedBy" label="Updated By" />
+    <column name="updated_date" fieldName="UpdatedDate" label="Updated Date" format="g" />
+  </columns>
+</dataModel>

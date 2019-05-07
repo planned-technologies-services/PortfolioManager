@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Payroll" alias="Payroll" created="2017-07-19T15:47:24" modified="2017-07-19T19:35:24" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="PayrollPeriod" parentTableSchema="dbo" parentTableName="PayrollPeriod" x="380" y="20">
+      <foreignKeyColumn columnName="payrollperiodid" parentColumnName="payrollperiodid" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="payrollid" fieldName="Payrollid" label="Payrollid" />
+    <column name="payrollperiodid" fieldName="Payrollperiodid" label="Payrollperiodid" aliasColumnName="start_date" aliasForeignKey="PayrollPeriod" />
+    <column name="start_date" fieldName="PayrollperiodStartDate" label="Payrollperiod Start Date" foreignKey="PayrollPeriod" format="g" />
+    <column name="end_date" fieldName="PayrollperiodEndDate" label="Payrollperiod End Date" foreignKey="PayrollPeriod" format="g" />
+    <column name="check_date" fieldName="PayrollperiodCheckDate" label="Payrollperiod Check Date" foreignKey="PayrollPeriod" format="g" />
+    <column name="site_code" fieldName="SiteCode" label="Site Code" />
+    <column name="jobno" fieldName="Jobno" label="Jobno" />
+    <column name="siteid" fieldName="Siteid" label="Siteid" />
+    <column name="site_name" fieldName="SiteName" label="Site Name" />
+    <column name="managerid" fieldName="Managerid" label="Managerid" />
+    <column name="manager_name" fieldName="ManagerName" label="Manager Name" />
+    <column name="budget_dollars" fieldName="BudgetDollars" label="Budget Dollars" />
+    <column name="budget_hours" fieldName="BudgetHours" label="Budget Hours" />
+    <column name="budget_salary_hours" fieldName="BudgetSalaryHours" label="Budget Salary Hours" format="c" />
+    <column name="total_actual_dollars" fieldName="TotalActualDollars" label="Total Actual Dollars" />
+    <column name="total_actual_hours" fieldName="TotalActualHours" label="Total Actual Hours" />
+    <column name="actual_po_dollars" fieldName="ActualPoDollars" label="Actual Po Dollars" />
+    <column name="actual_po_hours" fieldName="ActualPoHours" label="Actual Po Hours" />
+    <column name="bill_po_hours" fieldName="BillPoHours" label="Bill Po Hours" />
+    <column name="bill_po_dollars" fieldName="BillPoDollars" label="Bill Po Dollars" />
+    <column name="var_hours" fieldName="VarHours" label="Var Hours" />
+    <column name="var_dollars" fieldName="VarDollars" label="Var Dollars" />
+    <column name="var_po_hours" fieldName="VarPoHours" label="Var Po Hours" />
+    <column name="var_po_dollars" fieldName="VarPoDollars" label="Var Po Dollars" />
+    <column name="note1" fieldName="Note1" label="Note1" />
+    <column name="note2" fieldName="Note2" label="Note2" />
+    <column name="note3" fieldName="Note3" label="Note3" />
+    <column name="note4" fieldName="Note4" label="Note4" />
+    <column name="note5" fieldName="Note5" label="Note5" />
+    <column name="note6" fieldName="Note6" label="Note6" />
+    <column name="note1_updatedby" fieldName="Note1Updatedby" label="Note1 Updatedby" />
+    <column name="note2_updatedby" fieldName="Note2Updatedby" label="Note2 Updatedby" />
+    <column name="note3_updatedby" fieldName="Note3Updatedby" label="Note3 Updatedby" />
+    <column name="note1_isApproved" fieldName="Note1Isapproved" label="note1 is Approved" />
+    <column name="note2_isApproved" fieldName="Note2Isapproved" label="note2 is Approved" />
+    <column name="note3_isApproved" fieldName="Note3Isapproved" label="note3 is Approved" />
+    <column name="state" fieldName="State" label="State" />
+    <column name="isReviewed" fieldName="IsReviewed" label="is Reviewed" />
+    <column name="isReviewed2" fieldName="IsReviewed2" label="is Reviewed2" />
+    <column name="isReviewed3" fieldName="IsReviewed3" label="is Reviewed3" />
+    <column name="propertymanagementid" fieldName="Propertymanagementid" label="Propertymanagementid" />
+    <column name="propertymanagement_name" fieldName="PropertymanagementName" label="Propertymanagement Name" />
+    <column name="isReviewed_updatedby" fieldName="IsreviewedUpdatedby" label="is Reviewed updatedby" />
+    <column name="isReviewed2_updatedby" fieldName="Isreviewed2Updatedby" label="is Reviewed2 updatedby" />
+    <column name="isReviewed3_updatedby" fieldName="Isreviewed3Updatedby" label="is Reviewed3 updatedby" />
+  </columns>
+</dataModel>

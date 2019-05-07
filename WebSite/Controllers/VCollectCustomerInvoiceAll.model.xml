@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="vCollectCustomerInvoiceAll" alias="vCollectCustomerInvoiceAll" created="2017-08-01T15:39:42" modified="2017-08-01T15:46:12" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Site" parentTableSchema="dbo" parentTableName="Site" x="638" y="149">
+      <foreignKeyColumn columnName="siteid" parentColumnName="siteid" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="customerid" fieldName="Customerid" label="Customerid" />
+    <column name="comp" fieldName="Comp" label="Comp" />
+    <column name="ARDivisionNo" fieldName="ArdivisionNo" label="AR Division No" />
+    <column name="CustomerNo" fieldName="CustomerNo" label="Customer No" />
+    <column name="CustomerName" fieldName="CustomerName" label="Customer Name" />
+    <column name="InvoiceTotal" fieldName="InvoiceTotal" label="Invoice Total" />
+    <column name="Balance" fieldName="Balance" label="Balance" />
+    <column name="InvoiceNo" fieldName="InvoiceNo" label="Invoice No" />
+    <column name="invoiceheader" fieldName="Invoiceheader" label="Invoiceheader" />
+    <column name="DateLastPayment" fieldName="DateLastPayment" label="Date Last Payment" />
+    <column name="City" fieldName="City" label="City" />
+    <column name="ZipCode" fieldName="ZipCode" label="Zip Code" />
+    <column name="State" fieldName="State" label="State" />
+    <column name="ContactCode" fieldName="ContactCode" label="Contact Code" />
+    <column name="DateEstablished" fieldName="DateEstablished" label="Date Established" />
+    <column name="CustomerStatus" fieldName="CustomerStatus" label="Customer Status" />
+    <column name="invoicedate" fieldName="Invoicedate" label="Invoicedate" />
+    <column name="invoiceduedate" fieldName="Invoiceduedate" label="Invoiceduedate" />
+    <column name="SalesPersonName" fieldName="SalesPersonName" label="Sales Person Name" />
+    <column name="propertymgmt" fieldName="Propertymgmt" label="Propertymgmt" />
+    <column name="siteid" fieldName="Siteid" label="Siteid" aliasColumnName="site_name" aliasForeignKey="Site" />
+    <column name="site_name" fieldName="CollectSiteName" label="Collect Site Name" foreignKey="Site" />
+    <column name="jobno" fieldName="Jobno" label="Jobno" />
+    <column name="ccid" fieldName="Ccid" label="Ccid" />
+    <column name="escalationlevel" fieldName="Escalationlevel" label="Escalationlevel" />
+    <column name="assigned_to" fieldName="AssignedTo" label="Assigned To" />
+    <column name="customertype_code" fieldName="CustomertypeCode" label="Customertype Code" />
+    <column name="promise_date" fieldName="PromiseDate" label="Promise Date" format="g" />
+    <column name="dispute_code" fieldName="DisputeCode" label="Dispute Code" />
+    <column name="disputed_amt" fieldName="DisputedAmt" label="Disputed Amt" />
+    <column name="lastactivitycompleted_date" fieldName="LastactivitycompletedDate" label="Lastactivitycompleted Date" format="g" />
+    <column name="LastResult" fieldName="LastResult" label="Last Result" />
+    <column name="comment" fieldName="Comment" label="Comment" />
+    <column name="cciid" fieldName="Cciid" label="Cciid" />
+    <column name="escalation_date" fieldName="EscalationDate" label="Escalation Date" format="g" />
+    <column name="dispute_desc" fieldName="DisputeDesc" label="Dispute Desc" />
+  </columns>
+</dataModel>
